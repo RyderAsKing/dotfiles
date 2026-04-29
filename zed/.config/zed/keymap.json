@@ -1,0 +1,67 @@
+[
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space f": "file_finder::Toggle",
+      "space p": "command_palette::Toggle",
+
+      "space e": "project_panel::Toggle",
+      "space g": "git_panel::Toggle",
+      "space a": "agent::Toggle",
+      "space t": "terminal_panel::Toggle",
+
+      "space l a": "editor::ToggleCodeActions",
+      "space l r": "editor::Rename",
+      "space l f": "editor::Format",
+      "space l d": "diagnostics::Deploy",
+
+      "g d": "editor::GoToDefinition",
+      "g r": "editor::FindAllReferences",
+      "shift-k": "editor::Hover",
+
+      "ctrl-w z": "workspace::ToggleZoom",
+      "ctrl-w t": "terminal_panel::Toggle",
+
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+    },
+  },
+
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j j": "vim::NormalBefore",
+    },
+  },
+
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+    },
+  },
+
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-w t": "terminal_panel::Toggle",
+
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+    },
+  },
+
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-shift-p": "command_palette::Toggle",
+      "ctrl-w t": "terminal_panel::Toggle",
+    },
+  },
+]
