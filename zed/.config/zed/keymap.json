@@ -47,6 +47,7 @@
   {
     "context": "Terminal",
     "bindings": {
+      "ctrl-s": null,
       "ctrl-w t": "terminal_panel::Toggle",
 
       "ctrl-h": "workspace::ActivatePaneLeft",
@@ -62,6 +63,16 @@
       "ctrl-p": "file_finder::Toggle",
       "ctrl-shift-p": "command_palette::Toggle",
       "ctrl-w t": "terminal_panel::Toggle",
+    },
+  },
+
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space o": [
+        "action::Sequence",
+        ["pane::SplitRight", "workspace::NewCenterTerminal"],
+      ],
     },
   },
 ]
