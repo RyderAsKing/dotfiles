@@ -3,22 +3,26 @@
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "space f": "file_finder::Toggle",
-      "space p": "command_palette::Toggle",
-
+      "space o": "tab_switcher::Toggle",
       "space e": "project_panel::Toggle",
+      "space p": "outline::Toggle",
       "space g": "git_panel::Toggle",
       "space a": "agent::Toggle",
       "space t": "terminal_panel::Toggle",
+      "space v": "editor::GoToDefinitionSplit",
 
+      // LSP keybinds
       "space l a": "editor::ToggleCodeActions",
       "space l r": "editor::Rename",
       "space l f": "editor::Format",
       "space l d": "diagnostics::Deploy",
 
+      // Diagnostics/References
       "g d": "editor::GoToDefinition",
       "g r": "editor::FindAllReferences",
       "shift-k": "editor::Hover",
 
+      // Workspace Management
       "ctrl-w z": "workspace::ToggleZoom",
       "ctrl-w t": "terminal_panel::Toggle",
 
@@ -26,13 +30,6 @@
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-l": "workspace::ActivatePaneRight",
-    },
-  },
-
-  {
-    "context": "Editor && vim_mode == insert && !menu",
-    "bindings": {
-      "j j": "vim::NormalBefore",
     },
   },
 
@@ -54,25 +51,6 @@
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-l": "workspace::ActivatePaneRight",
-    },
-  },
-
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-p": "file_finder::Toggle",
-      "ctrl-shift-p": "command_palette::Toggle",
-      "ctrl-w t": "terminal_panel::Toggle",
-    },
-  },
-
-  {
-    "context": "Editor && VimControl && !VimWaiting && !menu",
-    "bindings": {
-      "space o": [
-        "action::Sequence",
-        ["pane::SplitRight", "workspace::NewCenterTerminal"],
-      ],
     },
   },
 ]
