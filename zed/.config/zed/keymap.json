@@ -1,5 +1,15 @@
 [
   {
+    "context": "Workspace && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+
+  {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "space f": "file_finder::Toggle",
@@ -53,4 +63,14 @@
       "ctrl-l": "workspace::ActivatePaneRight",
     },
   },
+  {
+    "bindings": {
+      "ctrl-shift-k ctrl-shift-o": "workspace::Open"
+    }
+  },
+  {
+    "unbind": {
+      "ctrl-k ctrl-o": "workspace::Open"
+    }
+  }
 ]

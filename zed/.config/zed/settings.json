@@ -1,5 +1,6 @@
 {
-  "theme": "GitHub Dark Dimmed",
+  "cli_default_open_behavior": "existing_window",
+  "theme": "Tokyo Night",
   "base_keymap": "VSCode",
 
   "agent_buffer_font_size": 18.0,
@@ -47,6 +48,7 @@
 
   // Agent
   "agent": {
+    "default_profile": "write",
     "inline_assistant_model": {
       "provider": "OpenCode Go",
       "model": "minimax-m2.7",
@@ -67,7 +69,9 @@
   "agent_servers": {
     "codex-acp": {
       "default_config_options": {
-        "mode": "auto",
+        "reasoning_effort": "medium",
+        "model": "gpt-5.5",
+        "mode": "full-access",
       },
       "type": "registry",
     },
