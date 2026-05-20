@@ -23,6 +23,7 @@ The OpenCode package intentionally tracks only personal configuration and custom
 
 - `opencode.json`
 - `tui.json`
+- `themes/`
 - `skills/`
 - `commands/` when present
 - `agents/` when present
