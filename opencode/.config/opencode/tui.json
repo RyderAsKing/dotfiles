@@ -1,0 +1,6 @@
+{
+  "plugin": [
+    "oc-tps@latest",
+    "opencode-vim@latest"
+  ]
+}
