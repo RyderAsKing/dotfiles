@@ -24,6 +24,9 @@
     },
     "explore": {
       "model": "opencode-go/deepseek-v4-flash"
+    },
+    "review": {
+      "model": "opencode-go/deepseek-v4-pro"
     }
   }
 }
