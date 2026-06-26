@@ -1,6 +1,7 @@
 {
   "plugin": [
     "oc-tps@latest",
-    "opencode-vim@latest"
+    "opencode-vim@latest",
+    "@tarquinen/opencode-dcp@latest"
   ]
 }

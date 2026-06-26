@@ -37,5 +37,13 @@
     "review": {
       "model": "opencode-go/deepseek-v4-pro"
     }
-  }
+  },
+  "compaction": {
+    "prune": true
+  },
+  "provider": {
+  },
+  "plugin": [
+    "@tarquinen/opencode-dcp@latest"
+  ]
 }
