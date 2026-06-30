@@ -1,5 +1,5 @@
 ---
-description: Use proactively for read-only codebase discovery, file finding, symbol tracing, dependency mapping, architecture inspection, convention discovery, and validation-command discovery before implementation.
+description: Use proactively for read-only codebase discovery, file finding, symbol tracing, dependency mapping, architecture inspection, and convention discovery before implementation.
 mode: subagent
 permission:
   "*": deny
@@ -27,7 +27,6 @@ Use this agent for:
 - tracing dependencies and call paths
 - discovering project conventions
 - finding existing patterns similar to the requested change
-- identifying likely validation commands
 - mapping architecture around a bounded feature or bug
 - checking whether a proposed change already has an established local pattern
 
@@ -89,13 +88,8 @@ Use this format:
 
 - Mention similar implementations, conventions, or naming patterns found.
 
-## Suggested next step
+## Commands run
 
-- Give the primary architect a concrete recommendation.
-
-## Validation
-
-- List likely commands to verify the change.
 - Say whether you ran any read-only validation/discovery commands.
 
 ## Confidence
@@ -113,5 +107,6 @@ High / Medium / Low, with one sentence explaining why.
 - Do not speculate without evidence.
 - Do not edit files.
 - Do not ask the user questions.
+- Do not recommend next steps, plans, implementation approaches, or validation commands.
 - Do not use emojis.
 - Return absolute paths when possible.
