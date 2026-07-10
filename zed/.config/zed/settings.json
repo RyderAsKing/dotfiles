@@ -3,7 +3,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Carbonfox - opaque"
+    "dark": "Carbonfox"
   },
   "base_keymap": "VSCode",
 
