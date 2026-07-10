@@ -67,41 +67,12 @@
   },
 
   "agent_servers": {
-    "codex-acp": {
-      "default_config_options": {
-        "reasoning_effort": "medium",
-        "model": "gpt-5.5",
-        "mode": "full-access",
-      },
-      "type": "registry",
-    },
-    "opencode": {
-      "type": "registry",
-    },
   },
 
   // Telemetry
   "language_models": {
     "openai_compatible": {
-      "OpenCode Go": {
-        "api_url": "https://opencode.ai/zen/go/v1",
-        "available_models": [
-          {
-            "name": "minimax-m2.7",
-            "max_tokens": 204800,
-            "max_output_tokens": 131072,
-            "max_completion_tokens": 204800,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true,
-              "chat_completions": true,
-            },
-          },
-        ],
       },
-    },
   },
   "telemetry": {
     "diagnostics": false,
