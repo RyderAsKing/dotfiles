@@ -3,5 +3,8 @@
     "oc-tps@latest",
     "opencode-vim@latest",
     "@tarquinen/opencode-dcp@latest"
-  ]
+  ],
+  "keybinds": {
+    "command_list": "<leader>p"
+  }
 }
