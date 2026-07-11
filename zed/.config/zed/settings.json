@@ -37,6 +37,22 @@
     "show": "never",
   },
 
+  // Keep all panels in a dock the same width when resizing or switching tabs.
+  "resize_all_panels_in_dock": ["left", "right"],
+
+  "project_panel": {
+    "default_width": 300,
+  },
+  "outline_panel": {
+    "default_width": 300,
+  },
+  "git_panel": {
+    "default_width": 300,
+  },
+  "collaboration_panel": {
+    "default_width": 300,
+  },
+
   // Terminal (FIXED)
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font Mono",
