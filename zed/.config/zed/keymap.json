@@ -72,5 +72,22 @@
     "unbind": {
       "ctrl-k ctrl-o": "workspace::Open"
     }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-alt-j": "multi_workspace::ToggleWorkspaceSidebar"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-alt-j": "multi_workspace::NextProject"
+    }
+  },
+  {
+    "context": "ThreadsSidebar && !Editor",
+    "unbind": {
+      "] p": "multi_workspace::NextProject"
+    }
   }
 ]
