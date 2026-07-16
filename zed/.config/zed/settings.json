@@ -67,13 +67,37 @@
   "lsp": {
     "luau-lsp": {
       "settings": {
+        "roblox": {
+          "enabled": true,
+          "security_level": "roblox_script",
+          "download_api_documentation": true,
+          "download_definitions": true
+        },
         "luau-lsp": {
+          "sourcemap": {
+            "enabled": true,
+            "autogenerate": true,
+            "rojoProjectFile": "default.project.json",
+            "includeNonScripts": true,
+            "sourcemapFile": "sourcemap.json"
+          },
           "inlayHints": {
             "parameterNames": "all"
           }
         }
       }
     }
+  },
+
+  "languages": {
+    "Luau": {
+      "formatter": {
+        "external": {
+          "command": "stylua",
+          "arguments": ["-"]
+        }
+      }
+    },
   },
 
   // Edit predictions
