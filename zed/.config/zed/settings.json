@@ -64,6 +64,18 @@
     "enabled": false,
   },
 
+  "lsp": {
+    "luau-lsp": {
+      "settings": {
+        "luau-lsp": {
+          "inlayHints": {
+            "parameterNames": "all"
+          }
+        }
+      }
+    }
+  },
+
   // Edit predictions
   "show_edit_predictions": true,
   "edit_predictions": {
