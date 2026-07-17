@@ -5,6 +5,7 @@
   ],
   "keybinds": {
     "command_list": "<leader>p",
-    "variant_cycle": "<leader>t"
+    "variant_list": "<leader>t",
+    "variant_cycle": "none"
   }
 }
