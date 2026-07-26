@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "opencode-planner@0.3.2",
+    "./plugin-overrides/planner-dedupe.js"
+  ],
+  "agent": {
+    "plan": {
+      "prompt": "{file:~/.config/opencode/prompts/tmux-plan.md}"
+    }
+  }
+}
