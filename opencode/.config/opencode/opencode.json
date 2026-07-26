@@ -33,10 +33,17 @@
   },
   "agent": {
     "architect": {
-      "color": "#3de070"
+      "color": "#3de070",
+      "model": "openai/gpt-5.6-terra",
+      "variant": "medium"
     },
-    "build": {},
-    "plan": {},
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "model": "openai/gpt-5.6-sol",
+      "variant": "medium"
+    },
     "general": {
       "model": "opencode-go/minimax-m3",
       "mode": "subagent"
