@@ -10,5 +10,5 @@ fi
 # Inject the editor-backed planner only for the terminal workflow. GUI and
 # headless OpenCode instances continue to use the base configuration.
 if [ -n "${TMUX:-}" ]; then
-  alias opencode='env -u OPENCODE_EXPERIMENTAL -u OPENCODE_EXPERIMENTAL_PLAN_MODE OPENCODE_CONFIG="$HOME/.config/opencode/cli-planner.json" opencode'
+  alias opencode='env OPENCODE_EXPERIMENTAL_PLAN_MODE=1 OPENCODE_CONFIG="$HOME/.config/opencode/cli-planner.json" opencode'
 fi
