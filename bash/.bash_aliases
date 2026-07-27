@@ -1,14 +1,4 @@
-# OpenCode planner integration
-# The Tmux override loads only in interactive shells that start inside Tmux.
-
-# opencode-planner requires an editor command that opens separately and blocks.
-# Preserve an explicitly configured editor; Zed's `--wait` fulfils this contract.
-if [ -z "${EDITOR:-}" ] && command -v zed >/dev/null 2>&1; then
-  export EDITOR="zed --wait"
-fi
-
-# Inject the editor-backed planner only for the terminal workflow. GUI and
-# headless OpenCode instances continue to use the base configuration.
+# Enable OpenCode's native experimental Plan Mode only inside Tmux.
 if [ -n "${TMUX:-}" ]; then
-  alias opencode='env OPENCODE_EXPERIMENTAL_PLAN_MODE=1 OPENCODE_CONFIG="$HOME/.config/opencode/cli-planner.json" opencode'
+  alias opencode='env OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode'
 fi
