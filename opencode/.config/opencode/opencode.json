@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "ayu-dark",
-  "model": "openai/gpt-5.6-terra",
   "default_agent": "build",
   "provider": {
     "openai": {
@@ -15,17 +14,22 @@
   "agent": {
     "build": {
       "color": "#3de070",
-      "model": "openai/gpt-5.6-terra"
+      "model": "openai/gpt-5.6-terra",
+      "variant": "high",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "explore": "allow",
+          "general": "allow",
+          "review": "allow"
+        }
+      },
+      "mode": "primary"
     },
     "quick": {
       "color": "#5cc8ff",
       "model": "openai/gpt-5.6-luna",
       "variant": "medium",
-      "mode": "primary"
-    },
-    "plan": {
-      "model": "openai/gpt-5.6-sol",
-      "color": "#a78bfa",
       "permission": {
         "task": {
           "*": "deny",
@@ -33,10 +37,26 @@
           "general": "deny",
           "review": "deny"
         }
-      }
+      },
+      "mode": "primary"
+    },
+    "plan": {
+      "color": "#a78bfa",
+      "model": "openai/gpt-5.6-sol",
+      "variant": "medium",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "explore": "allow",
+          "general": "deny",
+          "review": "deny"
+        }
+      },
+      "mode": "primary"
     },
     "general": {
-      "model": "opencode-go/minimax-m3",
+      "model": "openai/gpt-5.6-luna",
+      "variant": "high",
       "mode": "subagent"
     },
     "explore": {
