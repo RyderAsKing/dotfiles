@@ -16,42 +16,18 @@
       "color": "#3de070",
       "model": "openai/gpt-5.6-terra",
       "variant": "high",
-      "permission": {
-        "task": {
-          "*": "deny",
-          "explore": "allow",
-          "general": "allow",
-          "review": "allow"
-        }
-      },
       "mode": "primary"
     },
     "quick": {
       "color": "#5cc8ff",
       "model": "openai/gpt-5.6-luna",
       "variant": "medium",
-      "permission": {
-        "task": {
-          "*": "deny",
-          "explore": "allow",
-          "general": "deny",
-          "review": "deny"
-        }
-      },
       "mode": "primary"
     },
     "plan": {
       "color": "#a78bfa",
       "model": "openai/gpt-5.6-sol",
       "variant": "medium",
-      "permission": {
-        "task": {
-          "*": "deny",
-          "explore": "allow",
-          "general": "deny",
-          "review": "deny"
-        }
-      },
       "mode": "primary"
     },
     "general": {

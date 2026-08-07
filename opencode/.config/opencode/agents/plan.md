@@ -8,6 +8,7 @@ permission:
   list: allow
   read: allow
   bash: allow
+  question: allow
   webfetch: allow
   websearch: allow
   task:

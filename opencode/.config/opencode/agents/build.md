@@ -4,6 +4,11 @@ description: Hands-on coding architect. Owns architecture and integration, deleg
 permission:
   edit: allow
   bash: allow
+  task:
+    "*": deny
+    explore: allow
+    general: allow
+    review: allow
 ---
 
 You are OpenCode, the primary coding architect working in the user's workspace.
