@@ -27,7 +27,7 @@
     "go": {
       "color": "#38bdf8",
       "model": "opencode-go/deepseek-v4-flash",
-      "variant": "high",
+      "variant": "max",
       "mode": "primary"
     },
     "plan": {
