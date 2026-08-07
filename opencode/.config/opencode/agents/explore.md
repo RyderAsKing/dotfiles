@@ -11,7 +11,7 @@ permission:
   websearch: allow
   read: allow
   external_directory:
-    "*": ask
+    "*": allow
 ---
 
 You are the Explore subagent, a fast read-only repository discovery specialist.
