@@ -8,6 +8,7 @@ This repo stores personal config files in package-style directories.
 - `tmux/` contains tmux dotfiles.
 - `zed/` contains Zed config files.
 - `opencode/` contains user-authored OpenCode config such as `opencode.json`, `tui.json`, skills, commands, and agents.
+- `pi/` contains Pi configuration, model modes, extensions, skills, prompts, and themes.
 
 For package directories, paths are mirrored from `$HOME` inside each package. Example:
 
@@ -15,6 +16,7 @@ For package directories, paths are mirrored from `$HOME` inside each package. Ex
 - `zed/.config/zed/keymap.json` -> `~/.config/zed/keymap.json`
 - `opencode/.config/opencode/opencode.json` -> `~/.config/opencode/opencode.json`
 - `opencode/.config/opencode/skills` -> `~/.config/opencode/skills`
+- `pi/.pi/agent` -> `~/.pi/agent`
 
 This keeps each tool grouped under its own folder and works well with GNU Stow or manual symlinking.
 
@@ -26,7 +28,7 @@ Install [GNU Stow](https://www.gnu.org/software/stow/) and [fzf](https://github.
 ./stow-all.sh
 ```
 
-The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, and `opencode`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
+The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, and `pi`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
 
 The helper forwards Stow flags to the selected packages, so preview changes before applying them with:
 
@@ -35,6 +37,21 @@ The helper forwards Stow flags to the selected packages, so preview changes befo
 ```
 
 Stow keeps its default conflict behavior: it reports existing-file conflicts instead of overwriting them.
+
+## Pi
+
+The Pi package currently provides:
+
+- `modes.json` with affordability-based model modes, in cycle order:
+  - `economy`: DeepSeek V4 Flash with max thinking (blue).
+  - `balance`: Luna with max thinking (pink).
+  - `premium`: Terra with high thinking (gold).
+- `Shift+Tab` cycles modes (replacing Pi's default thinking-level shortcut).
+- `Ctrl+X` is a leader key: `Ctrl+X`, then `P` opens a searchable command palette; `Ctrl+X`, then `R` opens the session-resume picker; `Ctrl+X`, then `M` opens Pi's full model picker; `Ctrl+X`, then `T` cycles thinking levels.
+- `Ctrl+L` also opens Pi's model picker. `/economy`, `/balance`, and `/premium` switch modes directly.
+- Plan mode (`/plan`, `/todos`, and `Ctrl+Alt+P`) uses GPT-5.6 Sol with medium thinking, then restores the previously active mode before execution or when planning is disabled.
+
+Use `Shift+Tab` or one of the direct mode commands. Modes set both the model and its configured thinking variant; the plan extension remains separate and read-only until you choose to execute its plan.
 
 ## OpenCode
 

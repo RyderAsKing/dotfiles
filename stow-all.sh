@@ -13,7 +13,7 @@ if ! command -v fzf >/dev/null 2>&1; then
 fi
 
 repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
-packages=(bash tmux zed opencode)
+packages=(bash tmux zed opencode pi)
 
 if ! selected_output=$(printf '%s\n' "${packages[@]}" | fzf \
   --multi \
