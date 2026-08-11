@@ -34,6 +34,12 @@ const MAX_PARALLEL_TASKS = 8;
 const MAX_CONCURRENCY = 4;
 const COLLAPSED_ITEM_COUNT = 10;
 const PER_TASK_OUTPUT_CAP = 50 * 1024;
+const TOKEN_REGEX = /\w+|[^\s\w]/g;
+
+function estimateTokens(delta: string): number {
+	if (!delta) return 0;
+	return delta.match(TOKEN_REGEX)?.length || 1;
+}
 
 function formatTokens(count: number): string {
 	if (count < 1000) return count.toString();
@@ -51,6 +57,8 @@ function formatUsageStats(
 		cost: number;
 		contextTokens?: number;
 		turns?: number;
+		tps?: number;
+		ttftMs?: number;
 	},
 	model?: string,
 ): string {
@@ -64,6 +72,10 @@ function formatUsageStats(
 	if (usage.contextTokens && usage.contextTokens > 0) {
 		parts.push(`ctx:${formatTokens(usage.contextTokens)}`);
 	}
+	if (usage.tps !== undefined && usage.tps > 0) {
+		parts.push(`TPS: ${usage.tps.toFixed(1)} tok/s`);
+	}
+	if (usage.ttftMs !== undefined) parts.push(`TTFT: ${Math.round(usage.ttftMs)} ms`);
 	if (model) parts.push(model);
 	return parts.join(" ");
 }
@@ -144,6 +156,9 @@ interface UsageStats {
 	cost: number;
 	contextTokens: number;
 	turns: number;
+	tps?: number;
+	ttftMs?: number;
+	generationMs?: number;
 }
 
 interface SingleResult {
@@ -310,6 +325,36 @@ async function runSingleAgent(
 		step,
 	};
 
+	let ttftStartedAt = Date.now();
+	let firstTokenAt: number | undefined;
+	let generationStartedAt: number | undefined;
+	let currentEstimatedTokens = 0;
+	let generatedTokens = 0;
+	let generationMs = 0;
+
+	const markToken = (at: number): void => {
+		if (firstTokenAt === undefined) firstTokenAt = at;
+		if (generationStartedAt === undefined) generationStartedAt = at;
+	};
+
+	const updateSpeedStats = (): void => {
+		if (firstTokenAt !== undefined) currentResult.usage.ttftMs = firstTokenAt - ttftStartedAt;
+		if (generatedTokens > 0 && generationMs > 0) {
+			currentResult.usage.generationMs = generationMs;
+			currentResult.usage.tps = generatedTokens / (generationMs / 1000);
+		}
+	};
+
+	const finishMessage = (outputTokens: number | undefined, endedAt: number): void => {
+		if (generationStartedAt === undefined) return;
+		const tokens = outputTokens && outputTokens > 0 ? outputTokens : currentEstimatedTokens;
+		generatedTokens += tokens;
+		generationMs += Math.max(endedAt - generationStartedAt, 1);
+		generationStartedAt = undefined;
+		currentEstimatedTokens = 0;
+		updateSpeedStats();
+	};
+
 	const emitUpdate = () => {
 		if (onUpdate) {
 			onUpdate({
@@ -348,6 +393,32 @@ async function runSingleAgent(
 					return;
 				}
 
+				const now = Date.now();
+				if (event.type === "message_start" && event.message?.role === "user") {
+					ttftStartedAt = now;
+				}
+				if (event.type === "message_start" && event.message?.role === "assistant") {
+					generationStartedAt = undefined;
+					currentEstimatedTokens = 0;
+				}
+
+				if (event.type === "message_update" && event.assistantMessageEvent) {
+					const update = event.assistantMessageEvent;
+					if (update.type === "text_start" || update.type === "thinking_start" || update.type === "toolcall_start") {
+						markToken(now);
+					} else if (
+						update.type === "text_delta" ||
+						update.type === "thinking_delta" ||
+						update.type === "toolcall_delta"
+					) {
+						const tokens = estimateTokens(update.delta ?? "");
+						if (tokens > 0) {
+							markToken(now);
+							currentEstimatedTokens += tokens;
+						}
+					}
+				}
+
 				if (event.type === "message_end" && event.message) {
 					const msg = event.message as Message;
 					currentResult.messages.push(msg);
@@ -363,6 +434,7 @@ async function runSingleAgent(
 							currentResult.usage.cost += usage.cost?.total || 0;
 							currentResult.usage.contextTokens = usage.totalTokens || 0;
 						}
+						finishMessage(msg.usage?.output, now);
 						if (!currentResult.model && msg.model) currentResult.model = msg.model;
 						if (msg.stopReason) currentResult.stopReason = msg.stopReason;
 						if (msg.errorMessage) currentResult.errorMessage = msg.errorMessage;
@@ -828,8 +900,20 @@ export default function (pi: ExtensionAPI) {
 				return new Text(text, 0, 0);
 			}
 
-			const aggregateUsage = (results: SingleResult[]) => {
-				const total = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, cost: 0, turns: 0 };
+			const aggregateUsage = (results: SingleResult[]): UsageStats => {
+				const total: UsageStats = {
+					input: 0,
+					output: 0,
+					cacheRead: 0,
+					cacheWrite: 0,
+					cost: 0,
+					contextTokens: 0,
+					turns: 0,
+				};
+				let generationMs = 0;
+				let ttftTotal = 0;
+				let ttftCount = 0;
+
 				for (const r of results) {
 					total.input += r.usage.input;
 					total.output += r.usage.output;
@@ -837,7 +921,18 @@ export default function (pi: ExtensionAPI) {
 					total.cacheWrite += r.usage.cacheWrite;
 					total.cost += r.usage.cost;
 					total.turns += r.usage.turns;
+					generationMs += r.usage.generationMs ?? 0;
+					if (r.usage.ttftMs !== undefined) {
+						ttftTotal += r.usage.ttftMs;
+						ttftCount++;
+					}
 				}
+
+				if (generationMs > 0 && total.output > 0) {
+					total.generationMs = generationMs;
+					total.tps = total.output / (generationMs / 1000);
+				}
+				if (ttftCount > 0) total.ttftMs = ttftTotal / ttftCount;
 				return total;
 			};
 

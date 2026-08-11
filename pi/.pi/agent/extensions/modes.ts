@@ -84,35 +84,42 @@ function insertAtVisibleIndex(text: string, index: number, insertion: string): s
 	return `${text}${insertion}`;
 }
 
-function withoutModeStatus(footerData: ReadonlyFooterDataProvider): ReadonlyFooterDataProvider {
+function withoutInlineStatuses(
+	footerData: ReadonlyFooterDataProvider,
+	hideProviderCount: boolean,
+): ReadonlyFooterDataProvider {
 	return {
 		getGitBranch: () => footerData.getGitBranch(),
 		getExtensionStatuses: () => {
 			const statuses = new Map(footerData.getExtensionStatuses());
 			statuses.delete("mode");
+			statuses.delete("token-speed");
 			return statuses;
 		},
 		// The model identifier is enough once the mode is shown beside the stats.
-		getAvailableProviderCount: () => 1,
+		getAvailableProviderCount: () => (hideProviderCount ? 1 : footerData.getAvailableProviderCount()),
 		onBranchChange: (callback) => footerData.onBranchChange(callback),
 	};
 }
 
 // The built-in footer puts extension statuses on a separate line. Keep its
-// normal rendering and relocate only the mode status beside context usage.
+// normal rendering and relocate mode/token speed beside context usage.
 function installModeFooterPatch(): void {
 	const prototype = FooterComponent.prototype as FooterPrototype;
 	if (prototype[MODE_FOOTER_PATCH]) return;
 
 	const originalRender = prototype.render;
 	prototype.render = function (this: FooterComponent, width: number): string[] {
-		const footer = this as FooterInstance;
+		const footer = this as unknown as FooterInstance;
 		const footerData = footer.footerData;
-		const modeStatus = footerData.getExtensionStatuses().get("mode");
-		if (!modeStatus) return originalRender.call(this, width);
+		const statuses = footerData.getExtensionStatuses();
+		const inlineStatuses = [statuses.get("mode"), statuses.get("token-speed")].filter(
+			(status): status is string => Boolean(status),
+		);
+		if (inlineStatuses.length === 0) return originalRender.call(this, width);
 
-		const renderWithoutMode = (renderWidth: number): string[] => {
-			footer.footerData = withoutModeStatus(footerData);
+		const renderWithoutInlineStatuses = (renderWidth: number): string[] => {
+			footer.footerData = withoutInlineStatuses(footerData, Boolean(statuses.get("mode")));
 			try {
 				return originalRender.call(this, renderWidth);
 			} finally {
@@ -120,10 +127,10 @@ function installModeFooterPatch(): void {
 			}
 		};
 
-		const lines = renderWithoutMode(width);
-		const modeText = ` ${modeStatus}`;
-		const layoutWidth = Math.max(1, width - visibleWidth(modeText));
-		const layoutLines = renderWithoutMode(layoutWidth);
+		const lines = renderWithoutInlineStatuses(width);
+		const inlineText = ` ${inlineStatuses.join(" ")}`;
+		const layoutWidth = Math.max(1, width - visibleWidth(inlineText));
+		const layoutLines = renderWithoutInlineStatuses(layoutWidth);
 		const statsLine = layoutLines[1];
 		if (!statsLine) return originalRender.call(this, width);
 
@@ -133,8 +140,8 @@ function installModeFooterPatch(): void {
 			return originalRender.call(this, width);
 		}
 
-		const modeEnd = contextMatch.index + contextMatch[0].length;
-		lines[1] = insertAtVisibleIndex(statsLine, modeEnd, modeText);
+		const inlineEnd = contextMatch.index + contextMatch[0].length;
+		lines[1] = insertAtVisibleIndex(statsLine, inlineEnd, inlineText);
 		return lines;
 	};
 	prototype[MODE_FOOTER_PATCH] = true;
