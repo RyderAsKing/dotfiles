@@ -15,6 +15,6 @@
     "provider": "openai-codex",
     "model": "gpt-5.6-terra",
     "thinkingLevel": "high",
-    "color": "#FBBF24"
+    "color": "#D8B365"
   }
 }

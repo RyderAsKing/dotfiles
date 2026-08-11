@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.84.1",
-  "theme": "One Light/Carbonfox",
+  "theme": "Catppuccin Latte/Catppuccin Mocha",
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "max"
