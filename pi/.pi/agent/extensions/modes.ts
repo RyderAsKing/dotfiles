@@ -7,7 +7,7 @@ import {
 	type ExtensionContext,
 	type ReadonlyFooterDataProvider,
 } from "@earendil-works/pi-coding-agent";
-import { truncateToWidth } from "@earendil-works/pi-tui";
+import { visibleWidth } from "@earendil-works/pi-tui";
 
 type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
 
@@ -110,16 +110,21 @@ function installModeFooterPatch(): void {
 		const modeStatus = footerData.getExtensionStatuses().get("mode");
 		if (!modeStatus) return originalRender.call(this, width);
 
-		footer.footerData = withoutModeStatus(footerData);
-		let lines: string[];
-		try {
-			lines = originalRender.call(this, width);
-		} finally {
-			footer.footerData = footerData;
-		}
+		const renderWithoutMode = (renderWidth: number): string[] => {
+			footer.footerData = withoutModeStatus(footerData);
+			try {
+				return originalRender.call(this, renderWidth);
+			} finally {
+				footer.footerData = footerData;
+			}
+		};
 
-		const statsLine = lines[1];
-		if (!statsLine) return lines;
+		const lines = renderWithoutMode(width);
+		const modeText = ` ${modeStatus}`;
+		const layoutWidth = Math.max(1, width - visibleWidth(modeText));
+		const layoutLines = renderWithoutMode(layoutWidth);
+		const statsLine = layoutLines[1];
+		if (!statsLine) return originalRender.call(this, width);
 
 		const contextMatch = CONTEXT_USAGE.exec(stripAnsi(statsLine));
 		if (!contextMatch || contextMatch.index === undefined) {
@@ -128,7 +133,7 @@ function installModeFooterPatch(): void {
 		}
 
 		const modeEnd = contextMatch.index + contextMatch[0].length;
-		lines[1] = truncateToWidth(insertAtVisibleIndex(statsLine, modeEnd, ` ${modeStatus}`), width, "...");
+		lines[1] = insertAtVisibleIndex(statsLine, modeEnd, modeText);
 		return lines;
 	};
 	prototype[MODE_FOOTER_PATCH] = true;
