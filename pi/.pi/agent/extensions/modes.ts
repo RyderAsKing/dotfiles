@@ -1,7 +1,13 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
-import { getAgentDir } from "@earendil-works/pi-coding-agent";
+import {
+	FooterComponent,
+	getAgentDir,
+	type ExtensionAPI,
+	type ExtensionContext,
+	type ReadonlyFooterDataProvider,
+} from "@earendil-works/pi-coding-agent";
+import { truncateToWidth } from "@earendil-works/pi-tui";
 
 type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
 
@@ -45,6 +51,89 @@ function colorText(color: string | undefined, text: string): string {
 	return `\x1b[38;2;${red};${green};${blue}m${text}\x1b[39m`;
 }
 
+const MODE_FOOTER_PATCH = Symbol.for("dotfiles.mode-footer-patch");
+const ANSI_ESCAPE = /\x1b\[[0-?]*[ -/]*[@-~]/g;
+const CONTEXT_USAGE = /(?:\?|\d+(?:\.\d+)?%)\/\d+(?:\.\d+)?[kKmMgGtT]?(?: \(auto\))?/;
+
+type FooterPrototype = typeof FooterComponent.prototype & Record<symbol, unknown>;
+type FooterInstance = { footerData: ReadonlyFooterDataProvider };
+
+function stripAnsi(text: string): string {
+	return text.replace(ANSI_ESCAPE, "");
+}
+
+function insertAtVisibleIndex(text: string, index: number, insertion: string): string {
+	let visibleIndex = 0;
+	let offset = 0;
+
+	while (offset < text.length) {
+		const escape = text.slice(offset).match(/^\x1b\[[0-?]*[ -/]*[@-~]/);
+		if (escape) {
+			offset += escape[0].length;
+			continue;
+		}
+
+		if (visibleIndex === index) return `${text.slice(0, offset)}${insertion}${text.slice(offset)}`;
+
+		const codePoint = text.codePointAt(offset);
+		if (codePoint === undefined) break;
+		offset += String.fromCodePoint(codePoint).length;
+		visibleIndex += 1;
+	}
+
+	return `${text}${insertion}`;
+}
+
+function withoutModeStatus(footerData: ReadonlyFooterDataProvider): ReadonlyFooterDataProvider {
+	return {
+		getGitBranch: () => footerData.getGitBranch(),
+		getExtensionStatuses: () => {
+			const statuses = new Map(footerData.getExtensionStatuses());
+			statuses.delete("mode");
+			return statuses;
+		},
+		getAvailableProviderCount: () => footerData.getAvailableProviderCount(),
+		onBranchChange: (callback) => footerData.onBranchChange(callback),
+	};
+}
+
+// The built-in footer puts extension statuses on a separate line. Keep its
+// normal rendering and relocate only the mode status beside context usage.
+function installModeFooterPatch(): void {
+	const prototype = FooterComponent.prototype as FooterPrototype;
+	if (prototype[MODE_FOOTER_PATCH]) return;
+
+	const originalRender = prototype.render;
+	prototype.render = function (this: FooterComponent, width: number): string[] {
+		const footer = this as FooterInstance;
+		const footerData = footer.footerData;
+		const modeStatus = footerData.getExtensionStatuses().get("mode");
+		if (!modeStatus) return originalRender.call(this, width);
+
+		footer.footerData = withoutModeStatus(footerData);
+		let lines: string[];
+		try {
+			lines = originalRender.call(this, width);
+		} finally {
+			footer.footerData = footerData;
+		}
+
+		const statsLine = lines[1];
+		if (!statsLine) return lines;
+
+		const contextMatch = CONTEXT_USAGE.exec(stripAnsi(statsLine));
+		if (!contextMatch || contextMatch.index === undefined) {
+			// Keep the normal fallback status line if the stats line was truncated.
+			return originalRender.call(this, width);
+		}
+
+		const modeEnd = contextMatch.index + contextMatch[0].length;
+		lines[1] = truncateToWidth(insertAtVisibleIndex(statsLine, modeEnd, ` ${modeStatus}`), width, "...");
+		return lines;
+	};
+	prototype[MODE_FOOTER_PATCH] = true;
+}
+
 function updateStatus(pi: ExtensionAPI, ctx: ExtensionContext, activeMode: string | undefined, modes: Modes): void {
 	const mode = activeMode ? modes[activeMode] : undefined;
 	const variant = mode?.thinkingLevel ? `/${mode.thinkingLevel}` : "";
@@ -53,6 +142,8 @@ function updateStatus(pi: ExtensionAPI, ctx: ExtensionContext, activeMode: strin
 }
 
 export default function modesExtension(pi: ExtensionAPI): void {
+	installModeFooterPatch();
+
 	let modes: Modes = {};
 	let activeMode: string | undefined;
 
