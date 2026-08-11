@@ -92,7 +92,8 @@ function withoutModeStatus(footerData: ReadonlyFooterDataProvider): ReadonlyFoot
 			statuses.delete("mode");
 			return statuses;
 		},
-		getAvailableProviderCount: () => footerData.getAvailableProviderCount(),
+		// The model identifier is enough once the mode is shown beside the stats.
+		getAvailableProviderCount: () => 1,
 		onBranchChange: (callback) => footerData.onBranchChange(callback),
 	};
 }
