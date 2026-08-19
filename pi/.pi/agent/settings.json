@@ -1,7 +1,8 @@
 {
-  "lastChangelogVersion": "0.84.1",
+  "lastChangelogVersion": "0.84.2",
   "theme": "Catppuccin Latte/Catppuccin Mocha",
   "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
-  "defaultThinkingLevel": "max"
+  "defaultModel": "muse-spark-1.2-contributor",
+  "defaultThinkingLevel": "xhigh",
+  "tuiMode": "fullscreen"
 }
