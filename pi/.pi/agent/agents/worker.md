@@ -1,7 +1,7 @@
 ---
 name: worker
 description: General-purpose implementation agent for substantial delegated coding tasks; can inspect, edit, and test autonomously
-model: opencode-go/deepseek-v4-flash:max
+model: opencode-go/muse-spark-1.2-contributor:xhigh
 tools: read, write, edit, bash, grep, find, ls
 ---
 
