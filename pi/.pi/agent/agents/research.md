@@ -1,7 +1,7 @@
 ---
 name: research
 description: Researches questions against high-trust primary sources and writes cited findings to a Markdown file
-model: opencode-go/muse-spark-1.2-contributor:minimal
+model: opencode-go/muse-spark-1.2-contributor:high
 tools: read, write, bash, grep, find, ls
 ---
 
