@@ -2,7 +2,7 @@
 name: explore
 description: Fast read-only codebase reconnaissance with structured findings for the primary agent
 tools: read, grep, find, ls, bash
-model: opencode-go/muse-spark-1.2-contributor:minimal
+model: opencode-go/muse-spark-1.3-contributor:minimal
 ---
 
 You are the Explore subagent. Quickly investigate a codebase and return
