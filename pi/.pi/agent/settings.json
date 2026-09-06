@@ -1,9 +1,9 @@
 {
   "lastChangelogVersion": "0.85.1",
   "theme": "Catppuccin Latte/Catppuccin Mocha",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "medium",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "muse-spark-1.3-contributor",
+  "defaultThinkingLevel": "xhigh",
   "tuiMode": "fullscreen",
   "providers": {
     "openai": {
