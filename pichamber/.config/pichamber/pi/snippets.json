@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "snippets": [
+    {
+      "id": "45892bf7-4658-4814-8cdd-b20f5feb6225",
+      "name": "pr",
+      "content": "Check git status, git diff, and current branch. If on main or master, create a new branch first. Group all changed files into logical commits with clear conventional messages, one concern per commit. Push the branch with -u origin. Create a PR with gh pr create against the correct base, write a short title and a body that lists what changed and why. Return the PR URL. Do not merge.",
+      "description": "Create logical commits and open a PR",
+      "aliases": [],
+      "scope": "global",
+      "directory": null,
+      "createdAt": 1788728779566,
+      "updatedAt": 1788728779566
+    },
+    {
+      "id": "df99476d-f80c-4f6f-9227-ce43c98e61cb",
+      "name": "pr-merge",
+      "content": "Check git status, git diff, and current branch. If on main or master, create a new branch first. Order the work into small logical commits, one concern per commit, with clear conventional messages. Push the branch with -u origin. Create a PR with gh pr create against the correct base, with a short title and a body that lists what changed and why. Wait for checks, then merge with gh pr merge and delete the branch. Return the PR URL and merge result.",
+      "description": "Create logical commits, open a PR, and merge it",
+      "aliases": [],
+      "scope": "global",
+      "directory": null,
+      "createdAt": 1788728779566,
+      "updatedAt": 1788728779566
+    },
+    {
+      "id": "f7ff2394-06d8-4d5d-b90b-bae3ceda1d10",
+      "name": "ci",
+      "content": "Find the PR for the current branch, then watch CI end to end with gh pr checks and gh run watch until everything finishes. If anything fails, pull the failing logs with gh run view, find the root cause, fix the code, and push again. Repeat until all checks are green. Report what failed, what you changed, and the final status.",
+      "description": "Watch CI end to end and fix failures",
+      "aliases": [],
+      "scope": "global",
+      "directory": null,
+      "createdAt": 1788728779566,
+      "updatedAt": 1788728779566
+    }
+  ]
+}

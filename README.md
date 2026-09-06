@@ -9,6 +9,7 @@ This repo stores personal config files in package-style directories.
 - `zed/` contains Zed config files.
 - `opencode/` contains user-authored OpenCode config such as `opencode.json`, `tui.json`, skills, commands, and agents.
 - `pi/` contains Pi configuration, model modes, extensions, skills, prompts, and themes.
+- `pichamber/` contains PiChamber user settings such as `settings.json`, `pi/snippets.json`, and `stt/config.json`.
 
 For package directories, paths are mirrored from `$HOME` inside each package. Example:
 
@@ -17,6 +18,8 @@ For package directories, paths are mirrored from `$HOME` inside each package. Ex
 - `opencode/.config/opencode/opencode.json` -> `~/.config/opencode/opencode.json`
 - `opencode/.config/opencode/skills` -> `~/.config/opencode/skills`
 - `pi/.pi/agent` -> `~/.pi/agent`
+- `pichamber/.config/pichamber/settings.json` -> `~/.config/pichamber/settings.json`
+- `pichamber/.config/pichamber/pi/snippets.json` -> `~/.config/pichamber/pi/snippets.json`
 
 This keeps each tool grouped under its own folder and works well with GNU Stow or manual symlinking.
 
@@ -28,7 +31,7 @@ Install [GNU Stow](https://www.gnu.org/software/stow/) and [fzf](https://github.
 ./stow-all.sh
 ```
 
-The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, and `pi`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
+The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, `pi`, and `pichamber`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
 
 The helper forwards Stow flags to the selected packages, so preview changes before applying them with:
 
@@ -55,6 +58,15 @@ The Pi package currently provides:
 - The `subagent` tool's prompt guidance tells primary agents to prefer Explore for nontrivial read-only codebase discovery before planning or editing, while keeping simple known-file lookups local. Because the child receives only read-only tools, this guidance is not included in Explore's prompt.
 
 Use `Shift+Tab` or one of the direct mode commands. Modes set both the model and its configured thinking variant; the plan extension remains separate and read-only until you choose to execute its plan. You can still explicitly ask Pi to use the `explore` subagent when you want isolated read-only repository research.
+
+Sessions live outside the repo at `~/.local/share/pi/sessions`, linked from `pi/.pi/agent/sessions`. The link stays ignored by git. On a fresh clone, recreate it with:
+
+```sh
+mkdir -p ~/.local/share/pi
+ln -s ~/.local/share/pi/sessions ~/dotfiles/pi/.pi/agent/sessions
+```
+
+This is a directory link on purpose. PiChamber resolves sessions as `<agentDir>/sessions` directly and ignores pi's `sessionDir` setting, so moving them via settings would split sessions between two places.
 
 ## OpenCode
 

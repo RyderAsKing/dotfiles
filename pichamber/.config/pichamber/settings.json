@@ -1,0 +1,183 @@
+{
+  "desktopLocalPort": 57123,
+  "homeDirectory": "/home/ryder",
+  "lastDirectory": "/home/ryder",
+  "desktopWindowState": {
+    "x": 0,
+    "y": 0,
+    "width": 1600,
+    "height": 900,
+    "maximized": true,
+    "fullscreen": false
+  },
+  "themeId": "aura-dark",
+  "themeVariant": "dark",
+  "useSystemTheme": true,
+  "lightThemeId": "pichamber-light",
+  "darkThemeId": "aura-dark",
+  "splashBgLight": "#fcfcfd",
+  "splashFgLight": "#2d2d34",
+  "splashBgDark": "#15141B",
+  "splashFgDark": "#EDECEE",
+  "draftStarters": [],
+  "draftStartersScheduleTaskAdded": true,
+  "autoSaveEnabled": true,
+  "autoDeleteEnabled": false,
+  "autoDeleteAfterDays": 30,
+  "sessionRetentionAction": "archive",
+  "favoriteModels": [
+    {
+      "providerID": "opencode-go",
+      "modelID": "muse-spark-1.3-contributor"
+    }
+  ],
+  "hiddenModels": [
+    {
+      "providerID": "openai-codex",
+      "modelID": "gpt-5.4"
+    },
+    {
+      "providerID": "openai-codex",
+      "modelID": "gpt-5.3-codex-spark"
+    },
+    {
+      "providerID": "openai-codex",
+      "modelID": "gpt-5.4-mini"
+    },
+    {
+      "providerID": "openai-codex",
+      "modelID": "gpt-5.5"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "minimax-m3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.7-max"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.7-plus"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.8-max"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "deepseek-v4-pro"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "glm-5.1"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "glm-5.2"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "hy3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "kimi-k2.6"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "kimi-k2.7-code"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "kimi-k3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "mimo-v2.5-pro"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "minimax-m2.7"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.6-plus"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "gpt-5.6-luna"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "grok-4.5"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "deepseek-v4-flash-vision-exp"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "glm-5.3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "glm-5.3-flash"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "grok-4.6"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "hy4-preview"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "longcat-2.0"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "omen-alpha"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.8-flash"
+    }
+  ],
+  "collapsedModelProviders": [],
+  "recentModels": [
+    {
+      "providerID": "opencode-go",
+      "modelID": "muse-spark-1.3-contributor"
+    }
+  ],
+  "recentAgents": [],
+  "recentEfforts": {},
+  "projects": [
+    {
+      "id": "path_L21udC9kYXRhL0RldmVsb3BtZW50L1BpQ2hhbWJlcg",
+      "path": "/mnt/data/Development/PiChamber",
+      "label": "PiChamber",
+      "addedAt": 1788727389318,
+      "lastOpenedAt": 1788727389319
+    },
+    {
+      "id": "path_L21udC9kYXRhL0RldmVsb3BtZW50L2FjY291bnRz",
+      "path": "/mnt/data/Development/accounts",
+      "label": "Accounts",
+      "addedAt": 1788727424144,
+      "lastOpenedAt": 1788727424146
+    },
+    {
+      "id": "path_L21udC9kYXRhL0RldmVsb3BtZW50L1BpQ2hhbWJlci13ZWI",
+      "path": "/mnt/data/Development/PiChamber-web",
+      "label": "PiChamber Web",
+      "addedAt": 1788727491514,
+      "lastOpenedAt": 1788727491515
+    }
+  ],
+  "activeProjectId": "path_L21udC9kYXRhL0RldmVsb3BtZW50L1BpQ2hhbWJlci13ZWI",
+  "collapsibleThinkingBlocks": true,
+  "collapseThinkingByDefault": false
+}
