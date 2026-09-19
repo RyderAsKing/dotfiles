@@ -48,7 +48,7 @@ The Pi package currently provides:
 - `modes.json` with affordability-based model modes, in cycle order:
   - `economy`: Muse Spark 1.3 Contributor (opencode-go) with xhigh thinking (blue).
   - `balance`: Luna with max thinking (pink).
-  - `premium`: Terra with high thinking (gold).
+  - `premium`: Sol with low thinking (gold).
 - `Shift+Tab` cycles modes (replacing Pi's default thinking-level shortcut).
 - `token-speed.ts` shows lightweight live TPS and TTFT readings in Pi's footer, colors TPS by speed, and uses provider output usage for the final reading when available.
 - `Ctrl+X` is a leader key: `Ctrl+X`, then `P` opens a searchable command palette; `Ctrl+X`, then `R` opens the session-resume picker; `Ctrl+X`, then `M` opens Pi's full model picker; `Ctrl+X`, then `T` cycles thinking levels.
