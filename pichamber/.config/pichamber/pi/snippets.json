@@ -55,6 +55,17 @@
       "directory": null,
       "createdAt": 1790025671482,
       "updatedAt": 1790025671482
+    },
+    {
+      "id": "e26c3988-6449-4298-8aa9-9fbbec7bdb5b",
+      "name": "review",
+      "content": "Review the pending changes in the current repository, you can use subagents to explore and verify key files that you think are important, verify the tests as well, as well as edge cases that might usually be left out. Ensure that there is no regression caused.",
+      "description": "Review the pending changes in the current repo",
+      "aliases": [],
+      "scope": "global",
+      "directory": null,
+      "createdAt": 1788466641154,
+      "updatedAt": 1788466641154
     }
   ]
 }
