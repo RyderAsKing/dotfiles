@@ -33,6 +33,28 @@
       "directory": null,
       "createdAt": 1788728779566,
       "updatedAt": 1788728779566
+    },
+    {
+      "id": "765a9f07-420f-4d52-a74c-3f9eb73f5c39",
+      "name": "delegate",
+      "content": "You are the orchestrator and verifier only. Do not explore the codebase yourself and do not write implementation code directly. For any codebase exploration or reconnaissance, delegate to explore agents. For implementation, delegate to worker agents. Your job is to plan the work, dispatch it to the right agents, verify each result when it comes back, and integrate everything into the final outcome.",
+      "description": "Delegate exploration and implementation to subagents",
+      "aliases": [],
+      "scope": "global",
+      "directory": null,
+      "createdAt": 1790025671482,
+      "updatedAt": 1790025671482
+    },
+    {
+      "id": "c0afd0dd-c5b6-4010-b397-b529ba7df3da",
+      "name": "no-delegate",
+      "content": "Do not use subagents for this task.",
+      "description": "Handle the task without subagents",
+      "aliases": [],
+      "scope": "global",
+      "directory": null,
+      "createdAt": 1790025671482,
+      "updatedAt": 1790025671482
     }
   ]
 }
