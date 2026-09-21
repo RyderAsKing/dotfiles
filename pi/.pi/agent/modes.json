@@ -1,8 +1,8 @@
 {
   "economy": {
     "provider": "opencode-go",
-    "model": "muse-spark-1.3-contributor",
-    "thinkingLevel": "xhigh",
+    "model": "deepseek-v4.1-flash",
+    "thinkingLevel": "max",
     "color": "#60A5FA"
   },
   "balance": {

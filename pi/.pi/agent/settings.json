@@ -2,8 +2,8 @@
   "lastChangelogVersion": "0.85.1",
   "theme": "Catppuccin Latte/Catppuccin Mocha",
   "defaultProvider": "opencode-go",
-  "defaultModel": "muse-spark-1.3-contributor",
-  "defaultThinkingLevel": "xhigh",
+  "defaultModel": "deepseek-v4.1-flash",
+  "defaultThinkingLevel": "max",
   "tuiMode": "fullscreen",
   "providers": {
     "openai": {

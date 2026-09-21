@@ -46,7 +46,7 @@ Stow keeps its default conflict behavior: it reports existing-file conflicts ins
 The Pi package currently provides:
 
 - `modes.json` with affordability-based model modes, in cycle order:
-  - `economy`: Muse Spark 1.3 Contributor (opencode-go) with xhigh thinking (blue).
+  - `economy`: DeepSeek V4.1 Flash (opencode-go) with max thinking (blue).
   - `balance`: Luna with max thinking (pink).
   - `premium`: Sol with low thinking (gold).
 - `Shift+Tab` cycles modes (replacing Pi's default thinking-level shortcut).
@@ -54,7 +54,7 @@ The Pi package currently provides:
 - `Ctrl+X` is a leader key: `Ctrl+X`, then `P` opens a searchable command palette; `Ctrl+X`, then `R` opens the session-resume picker; `Ctrl+X`, then `M` opens Pi's full model picker; `Ctrl+X`, then `T` cycles thinking levels.
 - `Ctrl+L` also opens Pi's model picker. `/economy`, `/balance`, and `/premium` switch modes directly.
 - Plan mode (`/plan`, `/todos`, and `Ctrl+Alt+P`) uses GPT-5.6 Sol with medium thinking, then restores the previously active mode before execution or when planning is disabled.
-- An Explore subagent, invoked by Pi through the `subagent` tool, runs in an isolated process with Muse Spark 1.3 Contributor/low and read-only tools (`read`, `grep`, `find`, `ls`, and `bash`). It returns structured reconnaissance—file ranges, key code, architecture, and a recommended starting point—to the primary agent; subagent result footers also show TPS and TTFT alongside usage.
+- An Explore subagent, invoked by Pi through the `subagent` tool, runs in an isolated process with DeepSeek V4.1 Flash/low and read-only tools (`read`, `grep`, `find`, `ls`, and `bash`). It returns structured reconnaissance—file ranges, key code, architecture, and a recommended starting point—to the primary agent; subagent result footers also show TPS and TTFT alongside usage.
 - The `subagent` tool's prompt guidance tells primary agents to prefer Explore for nontrivial read-only codebase discovery before planning or editing, while keeping simple known-file lookups local. Because the child receives only read-only tools, this guidance is not included in Explore's prompt.
 
 Use `Shift+Tab` or one of the direct mode commands. Modes set both the model and its configured thinking variant; the plan extension remains separate and read-only until you choose to execute its plan. You can still explicitly ask Pi to use the `explore` subagent when you want isolated read-only repository research.

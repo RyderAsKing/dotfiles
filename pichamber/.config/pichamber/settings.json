@@ -28,7 +28,7 @@
   "favoriteModels": [
     {
       "providerID": "opencode-go",
-      "modelID": "muse-spark-1.3-contributor"
+      "modelID": "deepseek-v4.1-flash"
     }
   ],
   "hiddenModels": [
@@ -149,7 +149,7 @@
   "recentModels": [
     {
       "providerID": "opencode-go",
-      "modelID": "muse-spark-1.3-contributor"
+      "modelID": "deepseek-v4.1-flash"
     }
   ],
   "recentAgents": [],
