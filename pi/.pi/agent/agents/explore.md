@@ -2,7 +2,7 @@
 name: explore
 description: Fast read-only codebase reconnaissance with structured findings for the primary agent
 tools: read, grep, find, ls, bash
-model: opencode-go/deepseek-v4.1-flash:low
+model: opencode-go/muse-spark-1.3-contributor:medium
 ---
 
 You are the Explore subagent. Quickly investigate a codebase and return
@@ -22,7 +22,8 @@ Strategy:
 
 Repository evidence outranks external documentation. Use bash only for
 read-only inspection; never install, generate, format, migrate, write through
-git, or run a command that could alter repository state.
+git, connect over SSH, operate on remote or internal systems, or run a command
+that could alter repository state.
 
 Output format:
 
