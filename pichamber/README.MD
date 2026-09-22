@@ -34,6 +34,19 @@ The rest of `~/.config/pichamber` stays machine-local and is not part of this re
 - `speech-models/` (large binaries)
 - `worktree/` (runtime checkouts)
 
+## Tracked-file caveats
+
+The other two tracked files can absorb host-specific values when the app
+edits them:
+
+- `pi/snippets.json`: directory-scoped snippets carry a host `directory` path.
+  Keep tracked snippets `scope: global`; untrack or scrub directory-scoped
+  ones before committing.
+- `stt/config.json`: `providers` entries hold `baseUrl` and `apiKey` for
+  OpenAI-compatible speech providers. The tracked file must keep
+  `providers: []`; never adopt a populated provider list (that would commit
+  the API key).
+
 ## Note: re-stowing after the app saves
 
 PiChamber rewrites `settings.json` (and `pi/snippets.json` when edited in
