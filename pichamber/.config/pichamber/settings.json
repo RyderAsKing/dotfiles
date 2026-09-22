@@ -1,15 +1,5 @@
 {
-  "desktopLocalPort": 57123,
-  "homeDirectory": "/home/ryder",
-  "lastDirectory": "/home/ryder",
-  "desktopWindowState": {
-    "x": 0,
-    "y": 0,
-    "width": 1600,
-    "height": 900,
-    "maximized": true,
-    "fullscreen": false
-  },
+  "__pichamberSettingsScope": "portable-v1",
   "themeId": "aura-dark",
   "themeVariant": "dark",
   "useSystemTheme": true,
@@ -153,31 +143,5 @@
     }
   ],
   "recentAgents": [],
-  "recentEfforts": {},
-  "projects": [
-    {
-      "id": "path_L21udC9kYXRhL0RldmVsb3BtZW50L1BpQ2hhbWJlcg",
-      "path": "/mnt/data/Development/PiChamber",
-      "label": "PiChamber",
-      "addedAt": 1788727389318,
-      "lastOpenedAt": 1788727389319
-    },
-    {
-      "id": "path_L21udC9kYXRhL0RldmVsb3BtZW50L2FjY291bnRz",
-      "path": "/mnt/data/Development/accounts",
-      "label": "Accounts",
-      "addedAt": 1788727424144,
-      "lastOpenedAt": 1788727424146
-    },
-    {
-      "id": "path_L21udC9kYXRhL0RldmVsb3BtZW50L1BpQ2hhbWJlci13ZWI",
-      "path": "/mnt/data/Development/PiChamber-web",
-      "label": "PiChamber Web",
-      "addedAt": 1788727491514,
-      "lastOpenedAt": 1788727491515
-    }
-  ],
-  "activeProjectId": "path_L21udC9kYXRhL0RldmVsb3BtZW50L1BpQ2hhbWJlci13ZWI",
-  "collapsibleThinkingBlocks": true,
-  "collapseThinkingByDefault": false
+  "recentEfforts": {}
 }
