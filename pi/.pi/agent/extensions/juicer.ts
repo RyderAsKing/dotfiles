@@ -14,7 +14,7 @@ Rules:
 - Stay comprehensive: cover implementation, tests, and follow-through implied by the goal.`;
 
 const TARGET_PROVIDER = "openai-codex";
-const TARGET_MODEL = "gpt-5.6-sol";
+const TARGET_MODEL = "gpt-6-sol";
 const TARGET_THINKING: ThinkingLevel = "high";
 // 1.05M is the real OpenAI long-context limit; using 1050000 satisfies the "1M" request and matches docs.
 const TARGET_CONTEXT = 1050000;
@@ -117,7 +117,7 @@ export default function juicerExtension(pi: ExtensionAPI) {
 
   async function activate(ctx: ExtensionContext) {
     if (juicerActive) {
-      ctx.ui.notify("Juicer already active — gpt-5.6-sol/high, 1M, subagents off", "info");
+      ctx.ui.notify("Juicer already active — gpt-6-sol/high, 1M, subagents off", "info");
       return;
     }
 
@@ -137,7 +137,7 @@ export default function juicerExtension(pi: ExtensionAPI) {
     // 1) Extend context to 1M before model switch so the new model instance carries it
     patchContextTo1M(ctx);
 
-    // 2) Switch model to openai-codex/gpt-5.6-sol
+    // 2) Switch model to openai-codex/gpt-6-sol
     const target = ctx.modelRegistry.find(TARGET_PROVIDER, TARGET_MODEL) as any;
     if (!target) {
       ctx.ui.notify(`Juicer: model ${TARGET_PROVIDER}/${TARGET_MODEL} not found`, "error");
@@ -225,7 +225,7 @@ export default function juicerExtension(pi: ExtensionAPI) {
   }
 
   pi.registerCommand("juicer", {
-    description: "Toggle Juicer autonomous mode (gpt-5.6-sol/high, 1M context, subagents off)",
+    description: "Toggle Juicer autonomous mode (gpt-6-sol/high, 1M context, subagents off)",
     handler: async (args, ctx) => {
       const arg = args.trim().toLowerCase();
       if (arg === "on" || arg === "enable" || arg === "start") {

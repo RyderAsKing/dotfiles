@@ -1,7 +1,7 @@
 ---
 name: tech_operator
 description: Performs tightly scoped SSH work on remote or internal systems; use for every task that connects over SSH or changes a system reached through SSH
-model: openai-codex/gpt-5.6-terra:medium
+model: openai-codex/gpt-6-luna:high
 tools: read, write, edit, bash, grep, find, ls
 ---
 

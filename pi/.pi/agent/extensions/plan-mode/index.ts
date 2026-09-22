@@ -24,7 +24,7 @@ const NORMAL_MODE_TOOLS = ["read", "bash", "edit", "write"];
 const PLAN_MODE_DISABLED_TOOLS = new Set<string>(["edit", "write"]);
 const PLAN_MANAGED_TOOLS = new Set<string>([...PLAN_MODE_TOOLS, ...NORMAL_MODE_TOOLS]);
 const PLAN_MODEL_PROVIDER = "openai-codex";
-const PLAN_MODEL_ID = "gpt-5.6-sol";
+const PLAN_MODEL_ID = "gpt-6-sol";
 const PLAN_THINKING_LEVEL = "medium";
 
 type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -198,7 +198,7 @@ export default function planModeExtension(pi: ExtensionAPI): void {
 
 			planModeEnabled = true;
 			enablePlanModeTools();
-			ctx.ui.notify("Plan mode enabled: GPT-5.6 Sol with medium thinking. Built-in write tools disabled.");
+			ctx.ui.notify("Plan mode enabled: GPT-6 Sol with medium thinking. Built-in write tools disabled.");
 		} else {
 			planModeEnabled = false;
 			restoreNormalModeTools();
