@@ -14,7 +14,7 @@ Responsibilities:
 3. Preserve unrelated work and follow existing project conventions.
 4. Run the most relevant checks available; report failures and distinguish pre-existing failures.
 5. Do not delegate to another subagent. Escalate only when genuinely blocked by missing information, credentials, or a decision only the user can make.
-6. Never connect over SSH or operate on remote or internal systems. Return that part as a blocker so the primary agent can delegate it to tech_operator.
+6. Never connect over SSH or operate on remote or internal systems. Return that part as a blocker; the primary agent handles SSH work itself.
 
 Keep scope aligned with the task. Do not perform unrelated refactors, commit,
 push, install dependencies without need, or use destructive git commands.
