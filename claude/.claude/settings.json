@@ -1,0 +1,32 @@
+{
+  "model": "opus[1m]",
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "autoCompactWindow": 400000,
+  "theme": "dark",
+  "env": {
+    "MCP_TOOL_TIMEOUT": "3600000"
+  },
+  "permissions": {
+    "allow": [
+      "mcp__pi__delegate"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/block-builtin-agent.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

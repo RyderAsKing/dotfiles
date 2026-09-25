@@ -10,6 +10,8 @@ This repo stores personal config files in package-style directories.
 - `opencode/` contains user-authored OpenCode config such as `opencode.json`, `tui.json`, skills, commands, and agents.
 - `pi/` contains Pi configuration, model modes, extensions, skills, prompts, and themes.
 - `pichamber/` contains PiChamber user settings such as `settings.json`, `pi/snippets.json`, and `stt/config.json`.
+- `agents/` contains shared agent skills in `~/.agents/skills`, loaded natively by Pi and linked into Claude Code by the `claude` package.
+- `claude/` contains Claude Code config: `CLAUDE.md`, `settings.json`, hooks, and the `pi` MCP server that delegates work to Pi agents.
 
 For package directories, paths are mirrored from `$HOME` inside each package. Example:
 
@@ -20,6 +22,9 @@ For package directories, paths are mirrored from `$HOME` inside each package. Ex
 - `pi/.pi/agent` -> `~/.pi/agent`
 - `pichamber/.config/pichamber/settings.json` -> `~/.config/pichamber/settings.json`
 - `pichamber/.config/pichamber/pi/snippets.json` -> `~/.config/pichamber/pi/snippets.json`
+- `agents/.agents/skills` -> `~/.agents/skills`
+- `claude/.claude/settings.json` -> `~/.claude/settings.json`
+- `claude/.claude/mcp/pi-mcp.mjs` -> `~/.claude/mcp/pi-mcp.mjs`
 
 This keeps each tool grouped under its own folder and works well with GNU Stow or manual symlinking.
 
@@ -31,7 +36,7 @@ Install [GNU Stow](https://www.gnu.org/software/stow/) and [fzf](https://github.
 ./stow-all.sh
 ```
 
-The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, `pi`, and `pichamber`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
+The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, `pi`, `pichamber`, `agents`, and `claude`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
 
 The helper forwards Stow flags to the selected packages, so preview changes before applying them with:
 
@@ -87,3 +92,25 @@ Local dependency and vendor files stay directly in `~/.config/opencode` and are 
 - `node_modules/`
 
 This lets `stow opencode` manage the config files while leaving machine-local package files alone.
+
+## Claude Code
+
+Stowing `claude` links only user-authored files into `~/.claude`; Claude Code's own state (sessions, history, credentials, `~/.claude.json`) stays local.
+
+MCP servers are registered in `~/.claude.json`, which is not tracked, so register the `pi` delegation server once per machine:
+
+```sh
+claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"
+```
+
+## Shared skills
+
+Skills that every agent should get live in `agents/.agents/skills/`. Pi reads `~/.agents/skills` directly. Claude Code only reads `~/.claude/skills`, so each shared skill also needs a relative link in the `claude` package:
+
+```sh
+ln -s ../../../agents/.agents/skills/<name> claude/.claude/skills/<name>
+stow -R claude
+```
+
+Pi-only skills go in `pi/.pi/agent/skills/`.
+
