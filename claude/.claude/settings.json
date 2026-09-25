@@ -1,15 +1,7 @@
 {
-  "model": "opus[1m]",
-  "effortLevel": "medium",
-  "modelSettings": {
-    "claude-opus-5-5": {
-      "effortLevel": "medium"
-    }
-  },
-  "autoCompactWindow": 307200,
-  "theme": "dark",
   "env": {
-    "MCP_TOOL_TIMEOUT": "3600000"
+    "MCP_TOOL_TIMEOUT": "3600000",
+    "TZ": "Asia/Kolkata"
   },
   "permissions": {
     "allow": [
@@ -18,22 +10,9 @@
     "deny": [
       "Agent"
     ],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "auto"
   },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Agent",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/block-builtin-agent.sh"
-          }
-        ]
-      }
-    ]
-  },
-  "enableArtifact": false,
+  "model": "opus[1m]",
   "disableClaudeAiConnectors": true,
   "skillOverrides": {
     "anthropic-skills:docx": "off",
@@ -56,5 +35,30 @@
     "schedule": "off",
     "keybindings-help": "off",
     "fewer-permission-prompts": "off"
-  }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/block-builtin-agent.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "enableArtifact": false,
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "autoCompactWindow": 307200,
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "timeFormat": "12-hour",
+  "timeZone": "Asia/Kolkata"
 }
