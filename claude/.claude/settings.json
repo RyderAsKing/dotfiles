@@ -6,7 +6,7 @@
       "effortLevel": "medium"
     }
   },
-  "autoCompactWindow": 400000,
+  "autoCompactWindow": 307200,
   "theme": "dark",
   "env": {
     "MCP_TOOL_TIMEOUT": "3600000"
@@ -14,6 +14,9 @@
   "permissions": {
     "allow": [
       "mcp__pi__delegate"
+    ],
+    "deny": [
+      "Agent"
     ]
   },
   "hooks": {
@@ -28,5 +31,26 @@
         ]
       }
     ]
+  },
+  "enableArtifact": false,
+  "disableClaudeAiConnectors": true,
+  "skillOverrides": {
+    "anthropic-skills:docx": "off",
+    "anthropic-skills:pptx": "off",
+    "anthropic-skills:xlsx": "off",
+    "anthropic-skills:pdf": "off",
+    "anthropic-skills:docs": "off",
+    "anthropic-skills:chrome-browser": "off",
+    "anthropic-skills:built-in-browser": "off",
+    "anthropic-skills:computer-use": "off",
+    "anthropic-skills:morning": "off",
+    "anthropic-skills:deep-research": "off",
+    "anthropic-skills:import-memory": "off",
+    "anthropic-skills:skill-creator": "off",
+    "artifact-design": "off",
+    "artifact-diagramming": "off",
+    "artifact-capabilities": "off",
+    "dataviz": "user-invocable-only",
+    "claude-api": "user-invocable-only"
   }
 }
