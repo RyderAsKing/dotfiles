@@ -17,7 +17,8 @@
     ],
     "deny": [
       "Agent"
-    ]
+    ],
+    "defaultMode": "bypassPermissions"
   },
   "hooks": {
     "PreToolUse": [
@@ -51,6 +52,9 @@
     "artifact-diagramming": "off",
     "artifact-capabilities": "off",
     "dataviz": "user-invocable-only",
-    "claude-api": "user-invocable-only"
+    "claude-api": "user-invocable-only",
+    "schedule": "off",
+    "keybindings-help": "off",
+    "fewer-permission-prompts": "off"
   }
 }
