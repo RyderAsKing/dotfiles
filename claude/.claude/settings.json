@@ -5,14 +5,14 @@
   },
   "permissions": {
     "allow": [
-      "mcp__pi__delegate"
+      "mcp__agy__delegate"
     ],
     "deny": [
       "Agent"
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "disableClaudeAiConnectors": true,
   "skillOverrides": {
     "anthropic-skills:docx": "off",
@@ -54,11 +54,20 @@
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "medium"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "medium"
     }
   },
   "autoCompactWindow": 307200,
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "timeFormat": "12-hour",
+  "timeZone": "Asia/Kolkata",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
-  "timeFormat": "12-hour",
-  "timeZone": "Asia/Kolkata"
+  "voiceEnabled": true,
+  "switchModelsOnFlag": false
 }
