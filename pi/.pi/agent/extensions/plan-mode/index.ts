@@ -63,12 +63,6 @@ export default function planModeExtension(pi: ExtensionAPI): void {
 	let toolsBeforePlanMode: string[] | undefined;
 	let modelBeforePlanMode: ModelState | undefined;
 
-	pi.registerFlag("plan", {
-		description: "Start in plan mode (read-only exploration)",
-		type: "boolean",
-		default: false,
-	});
-
 	function updateStatus(ctx: ExtensionContext): void {
 		// Footer status
 		if (executionMode && todoItems.length > 0) {
@@ -410,10 +404,6 @@ After completing a step, include a [DONE:n] tag in your response.`;
 
 	// Restore state on session start/resume
 	pi.on("session_start", async (_event, ctx) => {
-		if (pi.getFlag("plan") === true) {
-			planModeEnabled = true;
-		}
-
 		const entries = ctx.sessionManager.getEntries();
 
 		// Restore persisted state
