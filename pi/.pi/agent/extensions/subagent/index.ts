@@ -541,7 +541,8 @@ export default function (pi: ExtensionAPI) {
 		].join(" "),
 		promptGuidelines: [
 			'Use the subagent tool with agent "explore" for nontrivial read-only repository discovery before planning or editing, especially to locate unfamiliar code, trace behavior across files, or find conventions and tests.',
-			'Do not use the subagent tool for simple lookups with a known file or symbol, work requiring writes or decisions, or research already established in the current context. Explore returns evidence only; use its findings to decide or implement.',
+			'Use the subagent tool with agent "worker" for substantial, self-contained implementation tasks (features, fixes, refactors, tests); give it the whole change with paths, constraints, and what done looks like, then verify its handoff.',
+			'Do not use the subagent tool for simple lookups with a known file or symbol, small edits, or research already established in the current context. Explore returns evidence only; use its findings to decide or implement.',
 		],
 		parameters: SubagentParams,
 
