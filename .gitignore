@@ -6,3 +6,6 @@ pi/.pi/agent/bin/
 pi/.pi/agent/models-store.json
 pi/.pi/agent/sessions
 pi/.pi/agent/trust.json
+# cursor local-only state, managed by Cursor app, never tracked
+cursor/.cursor/cli-config.json
+cursor/.cursor/cli-config.json.*

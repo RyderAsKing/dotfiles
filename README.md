@@ -12,6 +12,7 @@ This repo stores personal config files in package-style directories.
 - `pichamber/` contains PiChamber user settings such as `settings.json`, `pi/snippets.json`, and `stt/config.json`.
 - `agents/` contains shared agent skills in `~/.agents/skills`, loaded natively by Pi and linked into Claude Code by the `claude` package.
 - `claude/` contains Claude Code config: `CLAUDE.md`, `settings.json`, hooks, and the `pi` MCP server that delegates work to Pi agents.
+- `cursor/` contains Cursor subagent config. It pins the Explore subagent to Composer 2.5 slow and holds user-level subagents.
 
 For package directories, paths are mirrored from `$HOME` inside each package. Example:
 
@@ -25,6 +26,8 @@ For package directories, paths are mirrored from `$HOME` inside each package. Ex
 - `agents/.agents/skills` -> `~/.agents/skills`
 - `claude/.claude/settings.json` -> `~/.claude/settings.json`
 - `claude/.claude/mcp/pi-mcp.mjs` -> `~/.claude/mcp/pi-mcp.mjs`
+- `cursor/.cursor/agents` -> `~/.cursor/agents`
+- `cursor/.cursor/bin/apply-explore-slow.sh` -> `~/.cursor/bin/apply-explore-slow.sh`
 
 This keeps each tool grouped under its own folder and works well with GNU Stow or manual symlinking.
 
@@ -36,7 +39,7 @@ Install [GNU Stow](https://www.gnu.org/software/stow/) and [fzf](https://github.
 ./stow-all.sh
 ```
 
-The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, `pi`, `pichamber`, `agents`, and `claude`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
+The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, `pi`, `pichamber`, `agents`, `claude`, and `cursor`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
 
 The helper forwards Stow flags to the selected packages, so preview changes before applying them with:
 
@@ -102,6 +105,37 @@ MCP servers are registered in `~/.claude.json`, which is not tracked, so registe
 ```sh
 claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"
 ```
+
+## Cursor
+
+The Cursor package pins the Explore subagent to Composer 2.5 slow. That means `fast=false` on `composer-2.5` for every child run, on every machine.
+
+`~/.cursor/cli-config.json` holds machine state like auth and caches, so it is never tracked. Stow links the safe parts and a script applies the pin:
+
+```sh
+stow cursor
+~/.cursor/bin/apply-explore-slow.sh
+```
+
+Restart pi after applying. `/cursor-refresh-config` is worth a try first, restart is the reliable path.
+
+Per repo override, shared with the team through git:
+
+```sh
+~/.cursor/bin/apply-explore-slow.sh --project /path/to/repo
+```
+
+That writes `<repo>/.cursor/cli.json` with the same pin. Deeper files win when several apply.
+
+Custom subagents need the model in each file. Use this frontmatter line so they match:
+
+```md
+model: composer-2.5[fast=false]
+```
+
+Keep `PI_CURSOR_SETTING_SOURCES` unset or at all. Narrowing it to none stops the SDK from reading user and project layers, which drops the pin.
+
+Cursor runs stay Cursor native. `bash/.bashrc.d/pi-cursor-bridge.sh` exports `PI_CURSOR_PI_TOOL_BRIDGE=0`, so Cursor never sees pi tools, including the pi subagent. Check with `/cursor-tools`: bridge reads disabled and no `pi__*` names appear. Set the var to 1 or unset it to re-enable.
 
 ## Shared skills
 

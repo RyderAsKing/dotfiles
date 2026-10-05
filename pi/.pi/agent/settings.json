@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "1.0.2",
   "theme": "Catppuccin Latte/Catppuccin Mocha",
   "defaultProvider": "opencode-go",
   "defaultModel": "muse-spark-1.3-contributor",
@@ -14,6 +14,8 @@
       }
     }
   },
-  "packages": [],
+  "packages": [
+    "npm:pi-cursor-sdk@0.5.0"
+  ],
   "deviceId": "5e8ff9fb-6544-4bed-9725-fb97cfe0724e"
 }

@@ -1,0 +1,5 @@
+# Placeholder so stow creates ~/.cursor/agents on fresh machines.
+# Cursor only reads *.md files here, this file is ignored.
+# Put personal user-level subagents in this directory.
+# Pin each one to slow Composer with this frontmatter line:
+# model: composer-2.5[fast=false]
