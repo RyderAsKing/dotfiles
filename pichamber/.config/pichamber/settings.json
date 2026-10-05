@@ -27,114 +27,6 @@
   ],
   "hiddenModels": [
     {
-      "providerID": "opencode-go",
-      "modelID": "minimax-m3"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "qwen3.8-flash"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "deepseek-v4-flash"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "deepseek-v4-flash-vision-exp"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "deepseek-v4-pro"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "deepseek-v4.1-flash"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "glm-5.2"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "glm-5.3"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "glm-5.3-flash"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "hy3"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "hy4-preview"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "kimi-k2.7-code"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "kimi-k3"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "longcat-2.0"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "mimo-v2.5"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "mimo-v2.5-pro"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "mimo-v2.6-flash"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "mimo-v2.6-pro"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "minimax-m2.7"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "qwen3.7-plus"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "qwen3.8-max"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "gpt-5.6-luna"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "gpt-6-luna"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "grok-4.6"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "grok-4.7"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "muse-spark-1.2-contributor"
-    },
-    {
-      "providerID": "opencode-go",
-      "modelID": "muse-spark-1.3-contributor"
-    },
-    {
       "providerID": "opencode",
       "modelID": "claude-fable-5"
     },
@@ -451,136 +343,1100 @@
       "modelID": "muse-spark-1.3-contributor-free"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-fable-5"
+      "providerID": "openai-codex",
+      "modelID": "gpt-6-sol"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-fable-5.1"
+      "providerID": "cursor",
+      "modelID": "auto"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-haiku-4.5"
+      "providerID": "cursor",
+      "modelID": "auto-smart"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-4.1"
+      "providerID": "cursor",
+      "modelID": "claude-fable-5-1@1m"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-4.5"
+      "providerID": "cursor",
+      "modelID": "claude-fable-5-1@300k"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-4.6"
+      "providerID": "cursor",
+      "modelID": "claude-fable-5@1m"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-4.7"
+      "providerID": "cursor",
+      "modelID": "claude-fable-5@300k"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-4.8"
+      "providerID": "cursor",
+      "modelID": "claude-haiku-4-5"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-5"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-5"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-5.5"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-6@1m"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-sonnet-4"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-6@200k"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-sonnet-4.5"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-7@1m"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-sonnet-4.6"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-7@1m:fast"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-sonnet-5"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-7@1m:slow"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "anthropic/claude-sonnet-5.5"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-7@300k"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~anthropic/claude-fable-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-7@300k:fast"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~anthropic/claude-haiku-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-7@300k:slow"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~anthropic/claude-opus-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-8@1m"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~anthropic/claude-sonnet-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-8@1m:fast"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~deepseek/deepseek-flash-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-8@1m:slow"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~deepseek/deepseek-pro-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-8@300k"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~deepseek/deepseek-v4-flash-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-8@300k:fast"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~google/gemini-flash-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-4-8@300k:slow"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~google/gemini-pro-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5-5@1m"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~moonshotai/kimi-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5-5@1m:fast"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~openai/gpt-astra-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5-5@1m:slow"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~openai/gpt-luna-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5-5@300k"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~openai/gpt-mini-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5-5@300k:fast"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~openai/gpt-sol-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5-5@300k:slow"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~openai/gpt-terra-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5@1m"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~x-ai/grok-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5@1m:fast"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~z-ai/glm-flash-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5@1m:slow"
     },
     {
-      "providerID": "openrouter",
-      "modelID": "~z-ai/glm-latest"
+      "providerID": "cursor",
+      "modelID": "claude-opus-5@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-opus-5@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-opus-5@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-4-5@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-4-6@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-4-6@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-4@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-5-5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-5-5@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "claude-sonnet-5@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex-5.3"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex-5.3:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex-5.3:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex-latest"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex-latest:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex-latest:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "codex:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2-5"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2-5:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2-5:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2.5"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2.5:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2.5:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-2:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-latest"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-latest:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer-latest:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "composer:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "default"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "fable-5-1@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "fable-5-1@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "fable-5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "fable-5@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "fable@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "fable@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-2.5-flash"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-3-flash"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-3.1-pro"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-3.5-flash"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-3.6-flash"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-3.7-flash"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-3.8-flash"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-latest"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-pro"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gemini-pro-latest"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "glm-5.2"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "glm-5p3"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "glm-5p3-flash"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-5@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-5@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-5@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-5@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-5@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-luna@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-luna@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-luna@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-luna@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-luna@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-luna@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-sol@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-sol@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-sol@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-sol@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-sol@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-sol@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-terra@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-terra@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-terra@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-terra@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-terra@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-6-terra@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5-mini"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.1"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.2"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.2:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.2:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.3-codex"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.3-codex:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.3-codex:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4-mini"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4-nano"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.4@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.5@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.5@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.5@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.5@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.5@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-luna@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-luna@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-luna@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-luna@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-luna@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-luna@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-sol@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-sol@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-sol@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-sol@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-sol@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-sol@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-terra@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-terra@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-terra@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-terra@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-terra@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6-terra@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-5.6@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-latest@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-latest@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-latest@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-latest@272k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-latest@272k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-latest@272k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-mini-latest"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-nano"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "gpt-nano-latest"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.5"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.5:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.6"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.6:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.7@256k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.7@256k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.7@256k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.7@500k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.7@500k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "grok-4.7@500k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "haiku"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "haiku-4-5"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "haiku-4.5"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "haiku-latest"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "kimi-k2.7-code"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "kimi-k3"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "muse-spark-1.3@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "muse-spark-1.3@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "muse-spark@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "muse-spark@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "muse@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "muse@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-5"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-6@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-6@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-7@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-7@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-7@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-7@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-7@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-7@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-8@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-8@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-8@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-8@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-8@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4-8@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.5"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.6@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.6@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.7@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.7@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.7@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.7@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.7@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.7@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.8@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.8@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.8@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.8@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.8@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-4.8@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5-5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5-5@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5-5@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5-5@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5-5@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5-5@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5.5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5.5@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5.5@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5.5@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5.5@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5.5@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5@1m:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5@1m:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5@300k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5@300k:fast"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "opus-5@300k:slow"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-4-5@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-4-6@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-4-6@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-4.5@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-4.6@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-4.6@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-4@200k"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-5@1m"
+    },
+    {
+      "providerID": "cursor",
+      "modelID": "sonnet-5@300k"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "deepseek-v4-flash"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "deepseek-v4-flash-vision-exp"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "deepseek-v4-pro"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "deepseek-v4.1-flash"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "glm-5.2"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "glm-5.3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "glm-5.3-flash"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "gpt-5.6-luna"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "gpt-6-luna"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "grok-4.6"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "grok-4.7"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "hy3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "hy4-preview"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "kimi-k2.7-code"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "kimi-k3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "longcat-2.0"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "longcat-2.5-preview-free"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "mimo-v2.5"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "mimo-v2.5-pro"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "mimo-v2.6-flash"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "mimo-v2.6-pro"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "minimax-m2.7"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "minimax-m3"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "muse-spark-1.2-contributor"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.7-plus"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.8-flash"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "qwen3.8-max"
+    },
+    {
+      "providerID": "opencode-go",
+      "modelID": "space-bunny-free"
     },
     {
       "providerID": "openrouter",
@@ -624,7 +1480,11 @@
     },
     {
       "providerID": "openrouter",
-      "modelID": "anthropic/claude-fable-5:batch"
+      "modelID": "anthropic/claude-fable-5"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-fable-5.1"
     },
     {
       "providerID": "openrouter",
@@ -632,7 +1492,19 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "anthropic/claude-fable-5:batch"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-haiku-4.5"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "anthropic/claude-haiku-4.5:batch"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-opus-4.1"
     },
     {
       "providerID": "openrouter",
@@ -640,7 +1512,15 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "anthropic/claude-opus-4.5"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "anthropic/claude-opus-4.5:batch"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-opus-4.6"
     },
     {
       "providerID": "openrouter",
@@ -648,7 +1528,15 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "anthropic/claude-opus-4.7"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "anthropic/claude-opus-4.7:batch"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-opus-4.8"
     },
     {
       "providerID": "openrouter",
@@ -656,7 +1544,11 @@
     },
     {
       "providerID": "openrouter",
-      "modelID": "anthropic/claude-opus-5:batch"
+      "modelID": "anthropic/claude-opus-5"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-opus-5.5"
     },
     {
       "providerID": "openrouter",
@@ -664,7 +1556,23 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "anthropic/claude-opus-5:batch"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-sonnet-4"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "anthropic/claude-sonnet-4.5:batch"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-sonnet-4.6"
     },
     {
       "providerID": "openrouter",
@@ -672,11 +1580,19 @@
     },
     {
       "providerID": "openrouter",
-      "modelID": "anthropic/claude-sonnet-5:batch"
+      "modelID": "anthropic/claude-sonnet-5"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-sonnet-5.5"
     },
     {
       "providerID": "openrouter",
       "modelID": "anthropic/claude-sonnet-5.5:batch"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "anthropic/claude-sonnet-5:batch"
     },
     {
       "providerID": "openrouter",
@@ -689,6 +1605,26 @@
     {
       "providerID": "openrouter",
       "modelID": "auto"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "black-forest-labs/flux-3-image"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "black-forest-labs/flux.2-flex"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "black-forest-labs/flux.2-klein-4b"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "black-forest-labs/flux.2-max"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "black-forest-labs/flux.2-pro"
     },
     {
       "providerID": "openrouter",
@@ -713,6 +1649,30 @@
     {
       "providerID": "openrouter",
       "modelID": "bytedance-seed/seed-2.0-mini"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "bytedance-seed/seedream-4.5"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "bytedance-seed/seedream-5-0-flash"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "bytedance-seed/seedream-5-0-pro"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "cloudflare/clef"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "cloudflare/clef-flash"
     },
     {
       "providerID": "openrouter",
@@ -804,6 +1764,10 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "google/gemini-2.5-flash-image"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "google/gemini-2.5-flash-lite"
     },
     {
@@ -840,7 +1804,23 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "google/gemini-3-pro-image-preview"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "google/gemini-3.1-flash-image"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "google/gemini-3.1-flash-image-preview"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "google/gemini-3.1-flash-lite"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "google/gemini-3.1-flash-lite-image"
     },
     {
       "providerID": "openrouter",
@@ -940,6 +1920,10 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "inception/mercury-decide:free"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "inclusionai/ling-3.0-flash"
     },
     {
@@ -956,7 +1940,39 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "inclusionai/ling-3.1-flash"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "inclusionai/ming-image-0.1-design"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "inclusionai/ming-image-0.1-design-layer"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "jaredpalmer/kev-4b"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "krea/krea-2-large"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "krea/krea-2-medium"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "krea/krea-2-medium-turbo"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "kwaipilot/kat-coder-pro-v2.5"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "liquid/d1"
     },
     {
       "providerID": "openrouter",
@@ -992,6 +2008,10 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "meta/muse-image"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "meta/muse-spark-1.1"
     },
     {
@@ -1009,6 +2029,22 @@
     {
       "providerID": "openrouter",
       "modelID": "meta/muse-spark-1.3-contributor"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "microsoft/mai-image-2.5"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "microsoft/mai-image-2.5-pro"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "microsoft/mai-image-2.6"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "microsoft/mai-image-2.6-flash"
     },
     {
       "providerID": "openrouter",
@@ -1288,6 +2324,14 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "openai/gpt-5-image"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "openai/gpt-5-image-mini"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "openai/gpt-5-mini"
     },
     {
@@ -1309,10 +2353,6 @@
     {
       "providerID": "openrouter",
       "modelID": "openai/gpt-5-pro:batch"
-    },
-    {
-      "providerID": "openrouter",
-      "modelID": "openai/gpt-5:batch"
     },
     {
       "providerID": "openrouter",
@@ -1365,6 +2405,10 @@
     {
       "providerID": "openrouter",
       "modelID": "openai/gpt-5.4"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "openai/gpt-5.4-image-2"
     },
     {
       "providerID": "openrouter",
@@ -1460,6 +2504,10 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "openai/gpt-5:batch"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "openai/gpt-6-astra"
     },
     {
@@ -1525,6 +2573,26 @@
     {
       "providerID": "openrouter",
       "modelID": "openai/gpt-chat-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "openai/gpt-image-1"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "openai/gpt-image-1-mini"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "openai/gpt-image-2"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "openai/gpt-image-2.5-flare"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "openai/gpt-image-2.5-sunburst"
     },
     {
       "providerID": "openrouter",
@@ -1608,6 +2676,10 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "perplexity/pplx-decider-v1-27b"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "poolside/laguna-s-2.1"
     },
     {
@@ -1633,6 +2705,14 @@
     {
       "providerID": "openrouter",
       "modelID": "qwen/qwen-2.5-7b-instruct"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "qwen/qwen-image-3"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "qwen/qwen-image-3-pro"
     },
     {
       "providerID": "openrouter",
@@ -1836,11 +2916,87 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "recraft/recraft-v3"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4-pro"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4-pro-vector"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4-styles"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4-styles-pro"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4-styles-pro-vector"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4-styles-vector"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4-vector"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4.1"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4.1-flash"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4.1-pro"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4.1-pro-vector"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4.1-utility"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4.1-utility-pro"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "recraft/recraft-v4.1-vector"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "rekaai/reka-edge"
     },
     {
       "providerID": "openrouter",
       "modelID": "relace/relace-search"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "respan/span-01"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "respan/span-01-lite"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "respan/span-01-lite:free"
     },
     {
       "providerID": "openrouter",
@@ -1861,6 +3017,22 @@
     {
       "providerID": "openrouter",
       "modelID": "sao10k/l3.1-euryale-70b"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "sourceful/riverflow-v2-fast"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "sourceful/riverflow-v2-pro"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "sourceful/riverflow-v2.5-fast"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "sourceful/riverflow-v2.5-pro"
     },
     {
       "providerID": "openrouter",
@@ -1904,6 +3076,14 @@
     },
     {
       "providerID": "openrouter",
+      "modelID": "togethercomputer/tev1-4b-experimental"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "typesafe/jev-1.13"
+    },
+    {
+      "providerID": "openrouter",
       "modelID": "typesafe/jev-router"
     },
     {
@@ -1913,6 +3093,10 @@
     {
       "providerID": "openrouter",
       "modelID": "unbiased/pareto-26.10-preview"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "upstage/solar-decide"
     },
     {
       "providerID": "openrouter",
@@ -1953,6 +3137,14 @@
     {
       "providerID": "openrouter",
       "modelID": "x-ai/grok-build-0.1"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "x-ai/grok-imagine-image-2.0"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "x-ai/grok-imagine-image-quality"
     },
     {
       "providerID": "openrouter",
@@ -2047,8 +3239,80 @@
       "modelID": "z-ai/glm-5v-turbo"
     },
     {
-      "providerID": "openai-codex",
-      "modelID": "gpt-6-sol"
+      "providerID": "openrouter",
+      "modelID": "~anthropic/claude-fable-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~anthropic/claude-haiku-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~anthropic/claude-opus-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~anthropic/claude-sonnet-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~deepseek/deepseek-flash-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~deepseek/deepseek-pro-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~deepseek/deepseek-v4-flash-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~google/gemini-flash-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~google/gemini-pro-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~moonshotai/kimi-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~openai/gpt-astra-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~openai/gpt-luna-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~openai/gpt-mini-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~openai/gpt-sol-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~openai/gpt-terra-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~typesafe/jev-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~x-ai/grok-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~z-ai/glm-flash-latest"
+    },
+    {
+      "providerID": "openrouter",
+      "modelID": "~z-ai/glm-latest"
     }
   ],
   "collapsedModelProviders": [],
