@@ -7,25 +7,21 @@ This repo stores personal config files in package-style directories.
 - `bash/` contains Bash dotfiles.
 - `tmux/` contains tmux dotfiles.
 - `zed/` contains Zed config files.
-- `opencode/` contains user-authored OpenCode config such as `opencode.json`, `tui.json`, skills, commands, and agents.
 - `pi/` contains Pi configuration, model modes, extensions, skills, prompts, and themes.
 - `pichamber/` contains PiChamber user settings such as `settings.json`, `pi/snippets.json`, and `stt/config.json`.
 - `agents/` contains shared agent skills in `~/.agents/skills`, loaded natively by Pi and linked into Claude Code by the `claude` package.
-- `claude/` contains Claude Code config: `CLAUDE.md`, `settings.json`, hooks, and the `pi` MCP server that delegates work to Pi agents.
+- `claude/` contains Claude Code config: `CLAUDE.md`, `settings.json`, hooks, and the `agy` MCP server that delegates work to Antigravity agents.
 - `cursor/` contains Cursor subagent config. It pins the Explore subagent to Composer 2.5 slow and holds user-level subagents.
 
 For package directories, paths are mirrored from `$HOME` inside each package. Example:
 
 - `zed/.config/zed/settings.json` -> `~/.config/zed/settings.json`
 - `zed/.config/zed/keymap.json` -> `~/.config/zed/keymap.json`
-- `opencode/.config/opencode/opencode.json` -> `~/.config/opencode/opencode.json`
-- `opencode/.config/opencode/skills` -> `~/.config/opencode/skills`
-- `pi/.pi/agent` -> `~/.pi/agent`
+- `pi/.pi/agent/settings.json` -> `~/.pi/agent/settings.json`
 - `pichamber/.config/pichamber/settings.json` -> `~/.config/pichamber/settings.json`
 - `pichamber/.config/pichamber/pi/snippets.json` -> `~/.config/pichamber/pi/snippets.json`
 - `agents/.agents/skills` -> `~/.agents/skills`
 - `claude/.claude/settings.json` -> `~/.claude/settings.json`
-- `claude/.claude/mcp/pi-mcp.mjs` -> `~/.claude/mcp/pi-mcp.mjs`
 - `cursor/.cursor/agents` -> `~/.cursor/agents`
 - `cursor/.cursor/bin/apply-explore-slow.sh` -> `~/.cursor/bin/apply-explore-slow.sh`
 
@@ -39,7 +35,7 @@ Install [GNU Stow](https://www.gnu.org/software/stow/) and [fzf](https://github.
 ./stow-all.sh
 ```
 
-The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `opencode`, `pi`, `pichamber`, `agents`, `claude`, and `cursor`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
+The helper opens an `fzf` multi-select picker for `bash`, `tmux`, `zed`, `pi`, `pichamber`, `agents`, `claude`, and `cursor`. Press Tab to toggle packages and Enter to confirm; only the selected packages are stowed. Cancelling the picker or confirming an empty selection makes no changes.
 
 The helper forwards Stow flags to the selected packages, so preview changes before applying them with:
 
@@ -48,6 +44,21 @@ The helper forwards Stow flags to the selected packages, so preview changes befo
 ```
 
 Stow keeps its default conflict behavior: it reports existing-file conflicts instead of overwriting them.
+
+### Real directories, linked items
+
+Every package follows the same layout: the app's directory in `$HOME` is a real directory, and only the tracked items inside it are symlinks into this repo. For example, `~/.claude` is a real directory, `~/.claude/settings.json` links to `claude/.claude/settings.json`, and `~/.claude/history.jsonl` is a plain local file.
+
+Apps write their own state (credentials, sessions, caches) into these directories, so that state stays on the machine and never lands in the repo.
+
+Left alone, Stow would fold a directory that doesn't exist yet into one symlink, so the app would write its state straight into the repo. `stow-all.sh` prevents that by creating the directories listed in its `real_dirs` table before stowing. It also stops with an error if one of them is still a directory symlink. When an app starts writing into a new subdirectory, add that subdirectory to `real_dirs`.
+
+To track a new item, move it into the package and restow:
+
+```sh
+mv ~/.claude/commands claude/.claude/commands
+stow -R claude
+```
 
 ## Pi
 
@@ -67,44 +78,19 @@ The Pi package currently provides:
 
 Use `Shift+Tab` or one of the direct mode commands. Modes set both the model and its configured thinking variant; the plan extension remains separate and read-only until you choose to execute its plan. You can still explicitly ask Pi to use the `explore` subagent when you want isolated read-only repository research.
 
-Sessions live outside the repo at `~/.local/share/pi/sessions`, linked from `pi/.pi/agent/sessions`. The link stays ignored by git. On a fresh clone, recreate it with:
-
-```sh
-mkdir -p ~/.local/share/pi
-ln -s ~/.local/share/pi/sessions ~/dotfiles/pi/.pi/agent/sessions
-```
-
-This is a directory link on purpose. PiChamber resolves sessions as `<agentDir>/sessions` directly and ignores pi's `sessionDir` setting, so moving them via settings would split sessions between two places.
-
-## OpenCode
-
-The OpenCode package intentionally tracks only personal configuration and customizations:
-
-- `opencode.json`
-- `tui.json`
-- `themes/`
-- `skills/`
-- `commands/` when present
-- `agents/` when present
-
-Local dependency and vendor files stay directly in `~/.config/opencode` and are not part of this repo:
-
-- `package.json`
-- `package-lock.json`
-- `bun.lock`
-- `node_modules/`
-
-This lets `stow opencode` manage the config files while leaving machine-local package files alone.
+Sessions stay in `~/.pi/agent/sessions`, a local directory. PiChamber resolves sessions as `<agentDir>/sessions` and ignores pi's `sessionDir` setting, so don't move them.
 
 ## Claude Code
 
-Stowing `claude` links only user-authored files into `~/.claude`; Claude Code's own state (sessions, history, credentials, `~/.claude.json`) stays local.
+Stowing `claude` links `CLAUDE.md`, `settings.json`, `agy/`, `hooks/`, `mcp/`, and each shared skill into `~/.claude`. `~/.claude/skills` is a real directory because Claude Code syncs account skills into `~/.claude/skills/synced`.
 
-MCP servers are registered in `~/.claude.json`, which is not tracked, so register the `pi` delegation server once per machine:
+Delegation goes to Antigravity (Gemini) subagents through the `agy` MCP server in `agy/agy-mcp.mjs`. Agents are defined in `agy/agents/*.md`. The `agy` CLI has to be on `PATH`. MCP servers are registered in `~/.claude.json`, which is not tracked, so register the server once per machine:
 
 ```sh
-claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"
+claude mcp add --scope user agy -- node "$HOME/.claude/agy/agy-mcp.mjs"
 ```
+
+The older `pi` delegation server is still in `mcp/pi-mcp.mjs`. Register it the same way to switch back: `claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"`.
 
 ## Cursor
 
@@ -135,15 +121,12 @@ model: composer-2.5[fast=false]
 
 Keep `PI_CURSOR_SETTING_SOURCES` unset or at all. Narrowing it to none stops the SDK from reading user and project layers, which drops the pin.
 
-Cursor runs stay Cursor native. `bash/.bashrc.d/pi-cursor-bridge.sh` exports `PI_CURSOR_PI_TOOL_BRIDGE=0`, so Cursor never sees pi tools, including the pi subagent. Check with `/cursor-tools`: bridge reads disabled and no `pi__*` names appear. Set the var to 1 or unset it to re-enable.
-
 ## Shared skills
 
 Skills that every agent should get live in `agents/.agents/skills/`. Pi reads `~/.agents/skills` directly. Claude Code only reads `~/.claude/skills`, so each shared skill also needs a relative link in the `claude` package:
 
 ```sh
 ln -s ../../../agents/.agents/skills/<name> claude/.claude/skills/<name>
-stow -R claude
 ```
 
 Pi-only skills go in `pi/.pi/agent/skills/`.

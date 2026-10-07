@@ -1,11 +1,1 @@
 agent_tools/
-# pi local-only state (secrets / cache / sessions)
-pi/.pi/agent/.pichamber/
-pi/.pi/agent/auth.json
-pi/.pi/agent/bin/
-pi/.pi/agent/models-store.json
-pi/.pi/agent/sessions
-pi/.pi/agent/trust.json
-# cursor local-only state, managed by Cursor app, never tracked
-cursor/.cursor/cli-config.json
-cursor/.cursor/cli-config.json.*

@@ -68,6 +68,6 @@
   "timeZone": "Asia/Kolkata",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
-  "voiceEnabled": true,
-  "switchModelsOnFlag": false
+  "switchModelsOnFlag": false,
+  "voiceEnabled": true
 }
