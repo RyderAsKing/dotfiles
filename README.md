@@ -10,7 +10,7 @@ This repo stores personal config files in package-style directories.
 - `pi/` contains Pi configuration, model modes, extensions, skills, prompts, and themes.
 - `pichamber/` contains PiChamber user settings such as `settings.json`, `pi/snippets.json`, and `stt/config.json`.
 - `agents/` contains shared agent skills in `~/.agents/skills`, loaded natively by Pi and linked into Claude Code by the `claude` package.
-- `claude/` contains Claude Code config: `CLAUDE.md`, `settings.json`, hooks, and the `agy` MCP server that delegates work to Antigravity agents.
+- `claude/` contains Claude Code config: `CLAUDE.md`, `settings.json`, hooks, and the `pi` and `agy` MCP servers that delegate work to subagents.
 - `cursor/` contains Cursor subagent config. It pins the Explore subagent to Composer 2.5 slow and holds user-level subagents.
 
 For package directories, paths are mirrored from `$HOME` inside each package. Example:
@@ -84,13 +84,13 @@ Sessions stay in `~/.pi/agent/sessions`, a local directory. PiChamber resolves s
 
 Stowing `claude` links `CLAUDE.md`, `settings.json`, `agy/`, `hooks/`, `mcp/`, and each shared skill into `~/.claude`. `~/.claude/skills` is a real directory because Claude Code syncs account skills into `~/.claude/skills/synced`.
 
-Delegation goes to Antigravity (Gemini) subagents through the `agy` MCP server in `agy/agy-mcp.mjs`. Agents are defined in `agy/agents/*.md`. The `agy` CLI has to be on `PATH`. MCP servers are registered in `~/.claude.json`, which is not tracked, so register the server once per machine:
+Delegation goes to pi subagents through the `pi` MCP server in `mcp/pi-mcp.mjs`. Agents are defined in `~/.pi/agent/agents/*.md` (from the `pi` package). The `pi` CLI has to be on `PATH`. MCP servers are registered in `~/.claude.json`, which is not tracked, so register the server once per machine:
 
 ```sh
-claude mcp add --scope user agy -- node "$HOME/.claude/agy/agy-mcp.mjs"
+claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"
 ```
 
-The older `pi` delegation server is still in `mcp/pi-mcp.mjs`. Register it the same way to switch back: `claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"`.
+The Antigravity (Gemini) delegation server is still in `agy/agy-mcp.mjs`, with agents in `agy/agents/*.md`. Register it the same way to switch: `claude mcp add --scope user agy -- node "$HOME/.claude/agy/agy-mcp.mjs"`. Also point `CLAUDE.md`, the `permissions.allow` entry in `settings.json`, and `hooks/block-builtin-agent.sh` at `mcp__agy__delegate`.
 
 ## Cursor
 
