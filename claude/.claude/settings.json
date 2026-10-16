@@ -13,6 +13,10 @@
     "defaultMode": "auto"
   },
   "model": "opus",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "disableClaudeAiConnectors": true,
   "skillOverrides": {
     "anthropic-skills:docx": "off",
