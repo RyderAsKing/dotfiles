@@ -14,3 +14,7 @@ How to delegate:
 - Don't repeat the delegated work. Verify it: spot-read the key files or diff and run the relevant checks before reporting success.
 
 Handle directly, without delegating: planning and decomposition, talking with the user, reading one or two known files, verification, small edits (a few lines), git operations, and SSH work.
+
+# Safety guard
+
+Before work involving authentication, secrets, SSH or other external systems, or delegating to subagents, load the `claude-safety-guard` skill and follow it.
