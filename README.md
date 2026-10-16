@@ -131,3 +131,7 @@ ln -s ../../../agents/.agents/skills/<name> claude/.claude/skills/<name>
 
 Pi-only skills go in `pi/.pi/agent/skills/`.
 
+### Matt Pocock's skills
+
+27 of the shared skills are copied from [mattpocock/skills](https://github.com/mattpocock/skills) at commit `49dd158` (MIT, see `agents/.agents/skills/LICENSE-mattpocock-skills`). They are the skills listed in that repo's `.claude-plugin/plugin.json`, from `skills/engineering/` and `skills/productivity/`. They don't update themselves. To update, clone the repo again, copy those folders over the ones here, and add a link for any new skill. Run `/setup-matt-pocock-skills` once in each project to choose the issue tracker, triage labels and docs location.
+
