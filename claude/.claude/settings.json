@@ -34,7 +34,8 @@
     "claude-api": "user-invocable-only",
     "schedule": "off",
     "keybindings-help": "off",
-    "fewer-permission-prompts": "off"
+    "fewer-permission-prompts": "off",
+    "workflow-authoring": "off"
   },
   "hooks": {
     "PreToolUse": [
