@@ -92,6 +92,19 @@ claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"
 
 The Antigravity (Gemini) delegation server is still in `agy/agy-mcp.mjs`, with agents in `agy/agents/*.md`. Register it the same way to switch: `claude mcp add --scope user agy -- node "$HOME/.claude/agy/agy-mcp.mjs"`. Also point `CLAUDE.md`, the `permissions.allow` entry in `settings.json`, and `hooks/block-builtin-agent.sh` at `mcp__agy__delegate`.
 
+### Global and project CLAUDE.md
+
+Claude Code loads every `CLAUDE.md` that applies and combines them. It does not pick one:
+
+| File | Loads | Put here |
+|---|---|---|
+| `~/.claude/CLAUDE.md` (this repo) | Every session, in any directory | How you work everywhere: pi delegation, the safety guard |
+| `<repo>/CLAUDE.md` or `<repo>/.claude/CLAUDE.md` | Sessions started inside that repo | Facts about that codebase: test and lint commands, layout, conventions, Matt's `## Agent skills` block |
+| `CLAUDE.md` in a parent directory, e.g. `~/work/CLAUDE.md` | Sessions started below it | Rules shared by a group of repos |
+| `CLAUDE.md` in a subdirectory | Once Claude reads files in that subdirectory | Rules for one part of a large repo |
+
+Keep the global file to personal working rules and project files to project facts. Don't let them contradict each other: Claude gets both and may follow the more specific project file. `/setup-matt-pocock-skills` writes to the project file, never the global one.
+
 ## Cursor
 
 The Cursor package pins the Explore subagent to Composer 2.5 slow. That means `fast=false` on `composer-2.5` for every child run, on every machine.
