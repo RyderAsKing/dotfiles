@@ -72,11 +72,10 @@ The Pi package currently provides:
 - `token-speed.ts` shows lightweight live TPS and TTFT readings in Pi's footer, colors TPS by speed, and uses provider output usage for the final reading when available.
 - `Ctrl+X` is a leader key: `Ctrl+X`, then `P` opens a searchable command palette; `Ctrl+X`, then `R` opens the session-resume picker; `Ctrl+X`, then `M` opens Pi's full model picker; `Ctrl+X`, then `T` cycles thinking levels.
 - `Ctrl+L` also opens Pi's model picker. `/economy`, `/balance`, and `/premium` switch modes directly.
-- Plan mode (`/plan`, `/todos`, and `Ctrl+Alt+P`) uses GPT-6 Sol with medium thinking, then restores the previously active mode before execution or when planning is disabled.
 - An Explore subagent, invoked by Pi through the `subagent` tool, runs in an isolated process with DeepSeek V4.1 Flash/low and read-only tools (`read`, `grep`, `find`, `ls`, and `bash`). It returns structured reconnaissance—file ranges, key code, architecture, and a recommended starting point—to the primary agent; subagent result footers also show TPS and TTFT alongside usage.
-- The `subagent` tool's prompt guidance tells primary agents to prefer Explore for nontrivial read-only codebase discovery before planning or editing, while keeping simple known-file lookups local. Because the child receives only read-only tools, this guidance is not included in Explore's prompt.
+- The `subagent` tool is optional for primary agents. Delegated agents are instructed to complete work themselves and leave further delegation to their parent.
 
-Use `Shift+Tab` or one of the direct mode commands. Modes set both the model and its configured thinking variant; the plan extension remains separate and read-only until you choose to execute its plan. You can still explicitly ask Pi to use the `explore` subagent when you want isolated read-only repository research.
+Use `Shift+Tab` or one of the direct mode commands. Modes set both the model and its configured thinking variant. You can still explicitly ask Pi to use the `explore` subagent when you want isolated read-only repository research.
 
 Sessions stay in `~/.pi/agent/sessions`, a local directory. PiChamber resolves sessions as `<agentDir>/sessions` and ignores pi's `sessionDir` setting, so don't move them.
 
@@ -147,4 +146,3 @@ Pi-only skills go in `pi/.pi/agent/skills/`.
 ### Matt Pocock's skills
 
 27 of the shared skills are copied from [mattpocock/skills](https://github.com/mattpocock/skills) at commit `49dd158` (MIT, see `agents/.agents/skills/LICENSE-mattpocock-skills`). They are the skills listed in that repo's `.claude-plugin/plugin.json`, from `skills/engineering/` and `skills/productivity/`. They don't update themselves. To update, clone the repo again, copy those folders over the ones here, and add a link for any new skill. Run `/setup-matt-pocock-skills` once in each project to choose the issue tracker, triage labels and docs location.
-

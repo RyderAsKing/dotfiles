@@ -534,15 +534,16 @@ export default function (pi: ExtensionAPI) {
 		name: "subagent",
 		label: "Subagent",
 		description: [
-			"Delegate tasks to specialized subagents with isolated context.",
+			"Optionally delegate tasks to specialized subagents with isolated context.",
 			"Modes: single (agent + task), parallel (tasks array), chain (sequential with {previous} placeholder).",
 			`Default agent scope is "user" (from ${path.join(getAgentDir(), "agents")}).`,
 			`To enable project-local agents in ${CONFIG_DIR_NAME}/agents, set agentScope: "both" (or "project").`,
 		].join(" "),
 		promptGuidelines: [
-			'Use the subagent tool with agent "explore" for nontrivial read-only repository discovery before planning or editing, especially to locate unfamiliar code, trace behavior across files, or find conventions and tests.',
-			'Use the subagent tool with agent "worker" for substantial, self-contained implementation tasks (features, fixes, refactors, tests); give it the whole change with paths, constraints, and what done looks like, then verify its handoff.',
-			'Do not use the subagent tool for simple lookups with a known file or symbol, small edits, or research already established in the current context. Explore returns evidence only; use its findings to decide or implement.',
+			"Subagents are available when you judge delegation helpful or the user asks for it. You can also complete tasks directly.",
+			"When you are a delegated agent, complete the assigned work yourself and return results or blockers to your parent. Leave further delegation to your parent.",
+			'Available agents include "explore" for read-only investigation and "worker" for implementation. When delegating, give each agent a self-contained task with paths, constraints, and completion criteria.',
+			"Use the returned findings and verify the handoff before reporting completion.",
 		],
 		parameters: SubagentParams,
 

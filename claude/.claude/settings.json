@@ -4,9 +4,6 @@
     "TZ": "Asia/Kolkata"
   },
   "permissions": {
-    "allow": [
-      "mcp__pi__delegate"
-    ],
     "deny": [
       "Agent"
     ],
