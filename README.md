@@ -10,7 +10,7 @@ This repo stores personal config files in package-style directories.
 - `pi/` contains Pi configuration, model modes, extensions, skills, prompts, and themes.
 - `pichamber/` contains PiChamber user settings such as `settings.json`, `pi/snippets.json`, and `stt/config.json`.
 - `agents/` contains shared agent skills in `~/.agents/skills`, loaded natively by Pi and linked into Claude Code by the `claude` package.
-- `claude/` contains Claude Code config: `CLAUDE.md`, `settings.json`, hooks, and the `pi` and `agy` MCP servers that delegate work to subagents.
+- `claude/` contains Claude Code global instructions, settings, hooks, shared skill links, and legacy MCP helper scripts. Delegation uses T3 Code.
 - `cursor/` contains Cursor subagent config. It pins the Explore subagent to Composer 2.5 slow and holds user-level subagents.
 
 For package directories, paths are mirrored from `$HOME` inside each package. Example:
@@ -72,7 +72,7 @@ The Pi package currently provides:
 - `token-speed.ts` shows lightweight live TPS and TTFT readings in Pi's footer, colors TPS by speed, and uses provider output usage for the final reading when available.
 - `Ctrl+X` is a leader key: `Ctrl+X`, then `P` opens a searchable command palette; `Ctrl+X`, then `R` opens the session-resume picker; `Ctrl+X`, then `M` opens Pi's full model picker; `Ctrl+X`, then `T` cycles thinking levels.
 - `Ctrl+L` also opens Pi's model picker. `/economy`, `/balance`, and `/premium` switch modes directly.
-- An Explore subagent, invoked by Pi through the `subagent` tool, runs in an isolated process with DeepSeek V4.1 Flash/low and read-only tools (`read`, `grep`, `find`, `ls`, and `bash`). It returns structured reconnaissance—file ranges, key code, architecture, and a recommended starting point—to the primary agent; subagent result footers also show TPS and TTFT alongside usage.
+- An Explore subagent, invoked by Pi through the `subagent` tool, runs in an isolated process with Muse Spark 1.3 Contributor/low and read-only tools (`read`, `grep`, `find`, `ls`, and `bash`). It returns structured reconnaissance—file ranges, key code, architecture, and a recommended starting point—to the primary agent; subagent result footers also show TPS and TTFT alongside usage.
 - The `subagent` tool is optional for primary agents. Delegated agents are instructed to complete work themselves and leave further delegation to their parent.
 
 Use `Shift+Tab` or one of the direct mode commands. Modes set both the model and its configured thinking variant. You can still explicitly ask Pi to use the `explore` subagent when you want isolated read-only repository research.
@@ -83,13 +83,11 @@ Sessions stay in `~/.pi/agent/sessions`, a local directory. PiChamber resolves s
 
 Stowing `claude` links `CLAUDE.md`, `settings.json`, `agy/`, `hooks/`, `mcp/`, and each shared skill into `~/.claude`. `~/.claude/skills` is a real directory because Claude Code syncs account skills into `~/.claude/skills/synced`.
 
-Delegation goes to pi subagents through the `pi` MCP server in `mcp/pi-mcp.mjs`. Agents are defined in `~/.pi/agent/agents/*.md` (from the `pi` package). The `pi` CLI has to be on `PATH`. MCP servers are registered in `~/.claude.json`, which is not tracked, so register the server once per machine:
+Delegation goes through T3 Code's `delegate_task`. The global instructions default delegated implementation to Pi with Muse Spark 1.3 Contributor at high thinking, with Sonnet medium and Opus low/medium available for harder tasks. UI and design work stays with the main agent, and children do not start further subagents. Enable the corresponding providers in T3; Pi's CLI must be on `PATH` and authenticated with OpenCode Go.
 
-```sh
-claude mcp add --scope user pi -- node "$HOME/.claude/mcp/pi-mcp.mjs"
-```
+Claude's built-in `Agent` tool remains blocked by settings and a hook. The old helpers in `mcp/pi-mcp.mjs` and `agy/agy-mcp.mjs` are retained as legacy files and are not needed for T3 delegation. Machine-local MCP registrations live in `~/.claude.json` and are not tracked.
 
-The Antigravity (Gemini) delegation server is still in `agy/agy-mcp.mjs`, with agents in `agy/agents/*.md`. Register it the same way to switch: `claude mcp add --scope user agy -- node "$HOME/.claude/agy/agy-mcp.mjs"`. Also point `CLAUDE.md`, the `permissions.allow` entry in `settings.json`, and `hooks/block-builtin-agent.sh` at `mcp__agy__delegate`.
+Global instructions also cover Git/shipping, LAN dev servers, UI screenshots, and design preferences. Project-specific deployment commands and agent memories stay outside dotfiles; consult the project's deployment or infra docs when asked to deploy.
 
 ### Global and project CLAUDE.md
 
@@ -97,7 +95,7 @@ Claude Code loads every `CLAUDE.md` that applies and combines them. It does not 
 
 | File | Loads | Put here |
 |---|---|---|
-| `~/.claude/CLAUDE.md` (this repo) | Every session, in any directory | How you work everywhere: pi delegation, the safety guard |
+| `~/.claude/CLAUDE.md` (this repo) | Every session, in any directory | Shared workflow, T3 delegation tiers, design preferences, and the safety guard |
 | `<repo>/CLAUDE.md` or `<repo>/.claude/CLAUDE.md` | Sessions started inside that repo | Facts about that codebase: test and lint commands, layout, conventions, Matt's `## Agent skills` block |
 | `CLAUDE.md` in a parent directory, e.g. `~/work/CLAUDE.md` | Sessions started below it | Rules shared by a group of repos |
 | `CLAUDE.md` in a subdirectory | Once Claude reads files in that subdirectory | Rules for one part of a large repo |
@@ -142,6 +140,8 @@ ln -s ../../../agents/.agents/skills/<name> claude/.claude/skills/<name>
 ```
 
 Pi-only skills go in `pi/.pi/agent/skills/`.
+
+`setup-screenshots` sets up a repository's screenshot command, with desktop/mobile captures, before/after folders, and app-specific demo data and login. It reuses existing browser tooling where possible and includes a Playwright starter to avoid rebuilding the capture loop each time. Invoke it in the app repository; dotfiles only stores the shared skill and starter.
 
 ### Matt Pocock's skills
 
