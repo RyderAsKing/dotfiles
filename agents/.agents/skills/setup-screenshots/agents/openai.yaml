@@ -1,0 +1,3 @@
+interface:
+  display_name: "Setup screenshots"
+  short_description: "Set up repeatable screenshots with demo data"
