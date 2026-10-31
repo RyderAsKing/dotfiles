@@ -3,6 +3,10 @@
     "MCP_TOOL_TIMEOUT": "3600000",
     "TZ": "Asia/Kolkata"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "deny": [
       "Agent"
@@ -10,10 +14,6 @@
     "defaultMode": "auto"
   },
   "model": "opus",
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
   "disableClaudeAiConnectors": true,
   "skillOverrides": {
     "anthropic-skills:docx": "off",
@@ -70,6 +70,8 @@
   "timeZone": "Asia/Kolkata",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
+  "autoCompactEnabled": true,
   "switchModelsOnFlag": false,
+  "autoContinueAtUsageLimit": true,
   "voiceEnabled": true
 }

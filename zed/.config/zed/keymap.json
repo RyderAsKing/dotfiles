@@ -61,6 +61,10 @@
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-l": "workspace::ActivatePaneRight",
+      "shift-enter": [
+        "terminal::SendText",
+        "\u001b\r"
+      ],
     },
   },
   {

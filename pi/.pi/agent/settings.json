@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.0.3",
+  "lastChangelogVersion": "1.4.0",
   "theme": "Catppuccin Latte/Catppuccin Mocha",
   "defaultProvider": "opencode-go",
   "defaultModel": "muse-spark-1.3-contributor",
